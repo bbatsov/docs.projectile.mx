@@ -160,7 +160,7 @@ and using it is the best way to diagnose problems of any kind.</p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Here&#8217;s a [great crash course](<a href="https://www.youtube.com/watch?v=odkYXXYOxpo" class="bare">https://www.youtube.com/watch?v=odkYXXYOxpo</a>) on
+Here&#8217;s a <a href="https://www.youtube.com/watch?v=odkYXXYOxpo">great crash course</a> on
  using the debugger.
 </td>
 </tr>
@@ -232,6 +232,8 @@ If you intend to share the profiling results with someone it&#8217;s a good idea
 <div class="sect1">
 <h2 id="commonly-encountered-problems-and-how-to-solve-them"><a class="anchor" href="#commonly-encountered-problems-and-how-to-solve-them"></a>Commonly encountered problems (and how to solve them)</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="using-some-command-causes-emacs-to-freeze-for-a-while"><a class="anchor" href="#using-some-command-causes-emacs-to-freeze-for-a-while"></a>Using some command causes Emacs to freeze for a while</h3>
 <div class="paragraph">
 <p>Sometimes a Projectile command might hang for a while (e.g. due to a bug or a
 configuration issue). Such problems are super annoying, but are relatively easy
@@ -254,6 +256,7 @@ to debug. Here are a few steps you can take in such situations:</p>
 <p>This will bring up a backtrace with the entire function stack, including
 function arguments. So you should be able to figure out what&#8217;s going on (or at
 least what&#8217;s being required).</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="i-upgraded-projectile-using-package-el-and-nothing-changed"><a class="anchor" href="#i-upgraded-projectile-using-package-el-and-nothing-changed"></a>I upgraded Projectile using <code>package.el</code> and nothing changed</h3>
