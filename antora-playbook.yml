@@ -1,0 +1,27 @@
+site:
+  title: Projectile
+  url: https://docs.projectile.mx/
+  start_page: master@projectile::index.adoc
+  # keys:
+  #   google_analytics: 'UA-128069102-1'
+content:
+  sources:
+  - url: https://github.com/bbatsov/projectile.git
+    branches: ['master']
+    tags: []
+    start_path: doc
+asciidoc:
+  attributes:
+    experimental: ''
+    idprefix: ''
+    idseparator: '-'
+    linkattrs: ''
+    toc: ~
+    page-pagination: ''
+ui:
+  bundle:
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/master/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true
+  supplemental_files: ./supplemental-ui
+output:
+  dir: ./docs
