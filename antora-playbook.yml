@@ -8,7 +8,7 @@ content:
   sources:
   - url: https://github.com/bbatsov/projectile.git
     branches: ['master']
-    tags: []
+    tags: ['v2.2.0']
     start_path: doc
 asciidoc:
   attributes:
