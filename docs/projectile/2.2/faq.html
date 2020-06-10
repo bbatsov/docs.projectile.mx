@@ -3,14 +3,15 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Support :: Projectile</title>
-    <link rel="canonical" href="https://docs.projectile.mx/projectile/support.html">
-    <link rel="prev" href="contributing.html">
+    <title>Frequently Asked Questions :: Projectile</title>
+    <link rel="canonical" href="https://docs.projectile.mx/projectile/faq.html">
+    <link rel="prev" href="extensions.html">
+    <link rel="next" href="troubleshooting.html">
     <meta name="generator" content="Antora 2.0.0">
-    <link rel="stylesheet" href="../_/css/site.css">
-<link rel="stylesheet" href="../_/css/site-extra.css">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="stylesheet" href="../../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
-<link rel="icon" href="../_/img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
   </head>
   <body class="article">
 <header class="header" role="banner">
@@ -52,7 +53,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="projectile" data-version="master">
+<div class="nav-container" data-component="projectile" data-version="2.2">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -79,7 +80,7 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="extensions.html">Extensions</a>
   </li>
-  <li class="nav-item" data-depth="1">
+  <li class="nav-item is-current-page" data-depth="1">
     <a class="nav-link" href="faq.html">FAQ</a>
   </li>
   <li class="nav-item" data-depth="1">
@@ -88,7 +89,7 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="contributing.html">Contributing</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="1">
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="support.html">Support</a>
   </li>
 </ul>
@@ -99,17 +100,17 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Projectile</span>
-    <span class="version">master</span>
+    <span class="version">2.2</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <span class="title">Projectile</span>
       <ul class="versions">
-        <li class="version is-current is-latest">
-          <a href="index.html">master</a>
+        <li class="version is-latest">
+          <a href="../index.html">master</a>
         </li>
-        <li class="version">
-          <a href="2.2/index.html">2.2</a>
+        <li class="version is-current">
+          <a href="index.html">2.2</a>
         </li>
       </ul>
     </li>
@@ -121,92 +122,73 @@
 <main class="article">
 <div class="toolbar" role="navigation">
 <button class="nav-toggle"></button>
-  <a href="index.html" class="home-link"></a>
+  <a href="../index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">Projectile</a></li>
-    <li><a href="support.html">Support</a></li>
+    <li><a href="faq.html">FAQ</a></li>
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">master</button>
+  <button class="version-menu-toggle" title="Show other versions of page">2.2</button>
   <div class="version-menu">
-    <a class="version is-current" href="support.html">master</a>
-    <a class="version" href="2.2/support.html">2.2</a>
+    <a class="version" href="../faq.html">master</a>
+    <a class="version is-current" href="faq.html">2.2</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/bbatsov/projectile/edit/master/doc/modules/ROOT/pages/support.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/bbatsov/projectile/blob/v2.2.0/doc/modules/ROOT/pages/faq.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <article class="doc">
-<h1 class="page">Support</h1>
-<div id="preamble">
+<h1 class="page">Frequently Asked Questions</h1>
+<div class="sect1">
+<h2 id="why-did-you-name-it-projectile"><a class="anchor" href="#why-did-you-name-it-projectile"></a>Why did you name it Projectile?</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Projectile currently has several official &amp; unofficial support channels.</p>
-</div>
-<div class="paragraph">
-<p>For questions, suggestions and support refer to one of them.  Please, don&#8217;t
-use the support channels to report issues, as this makes them harder to track.</p>
+<p>I wanted a name that&#8217;s not as boring as <code>project.el</code> and implies that your
+interaction with projects is going to speed up significantly. :-)</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="gitter"><a class="anchor" href="#gitter"></a>Gitter</h2>
+<h2 id="does-projectile-work-with-tramp"><a class="anchor" href="#does-projectile-work-with-tramp"></a>Does Projectile work with TRAMP?</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Most internal discussions about the development of Projectile happen on its
-<a href="https://gitter.im/bbatsov/projectile">gitter channel</a>.  You can often find
-Projectile&#8217;s maintainers there and get some interesting news from the project&#8217;s
-kitchen.</p>
+<p>Yeah, it does. I don&#8217;t use TRAMP myself, however, so I never paid that
+much attention to the TRAMP support. It&#8217;s mostly community-maintained.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="mailing-list"><a class="anchor" href="#mailing-list"></a>Mailing List</h2>
+<h2 id="why-does-projectile-violate-the-rule-not-to-bind-keys-in-the-user-keymap"><a class="anchor" href="#why-does-projectile-violate-the-rule-not-to-bind-keys-in-the-user-keymap"></a>Why does Projectile violate the rule not to bind keys in the user keymap?</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <a href="https://groups.google.com/forum/#!forum/projectile">official mailing list</a> is
-hosted at Google Groups. It&#8217;s a low-traffic list, so don&#8217;t be too hesitant to subscribe.</p>
+<p>I opted for the <code>C-c p</code> prefix fully aware that this violates <a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Key-Binding-Conventions.html">a very
+established Emacs
+convention</a>,
+mostly because it felt practical and because pressing <code>C-c C-p</code> is not
+super convenient for many people. I&#8217;ve come to regret this decision,
+though, and it will likely be reverted down the road.</p>
+</div>
+<div class="paragraph">
+<p><strong>Update</strong> This was changed in Projectile 2.0.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="freenode"><a class="anchor" href="#freenode"></a>Freenode</h2>
+<h2 id="do-you-need-some-help-cleanup-up-all-those-tickets-that-have-piled-up"><a class="anchor" href="#do-you-need-some-help-cleanup-up-all-those-tickets-that-have-piled-up"></a>Do you need some help cleanup up all those tickets that have piled up?</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If you&#8217;re into IRC you can visit the <code>#projectile</code> channel on Freenode.
-It&#8217;s not actively
-monitored by the Projectile maintainers themselves, but still you can get support
-from other Projectile users there.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="stackoverflow"><a class="anchor" href="#stackoverflow"></a>Stackoverflow</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>We&#8217;re also encouraging users to ask Projectile-related questions on StackOverflow.</p>
-</div>
-<div class="paragraph">
-<p>When doing so you should use the
-<a href="http://stackoverflow.com/questions/tagged/projectile">Projectile</a> tag (ideally combined
-with the tag <code>emacs</code>).</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="bountysource"><a class="anchor" href="#bountysource"></a>Bountysource</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>If you&#8217;re willing to pay for some feature to be implemented you can use
-<a href="https://www.bountysource.com/teams/projectile/issues">Bountysource</a> to place a
-bounty for the work you want to be done.</p>
+<p>Certainly! In our <a href="https://github.com/bbatsov/projectile/issues/">issue
+tracker</a> we&#8217;ve got
+plenty of tickets marked with <code>Help Wanted</code> or <code>Good First Issue</code> that
+you can take a stab at, if you&#8217;d like to help out!</p>
 </div>
 </div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="contributing.html">Contributing</a></span>
+  <span class="prev"><a href="extensions.html">Extensions</a></span>
+  <span class="next"><a href="troubleshooting.html">Troubleshooting</a></span>
 </nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
@@ -227,7 +209,7 @@ docsearch({
   debug: false // Set debug to true if you want to inspect the dropdown
 });
 </script>
-<script src="../_/js/site.js"></script>
-<script async src="../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
   </body>
 </html>
