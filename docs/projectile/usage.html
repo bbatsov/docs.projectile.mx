@@ -164,12 +164,17 @@ projectile-discover-projects-in-directory</code>.</p>
 </div>
 <div class="paragraph">
 <p>You can go one step further and set a list of folders which Projectile
-is automatically going to check for projects:</p>
+is automatically going to check for projects on startup:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(setq projectile-project-search-path '("~/projects/" "~/work/"))</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>You can suppress the auto-discovery of projects on startup by setting
+<code>projectile-auto-discover</code> to <code>nil</code>. You can manually trigger the project
+discovery using <code>M-x projectile-discover-projects-in-search-path</code>.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -202,15 +207,19 @@ ready for action. Projectile happens to recognize out of the box every common
 VCS and many popular project types for various programming languages.
 You can learn more about Projectile&#8217;s notion of a project <a href="projects.html" class="page">here</a>.</p>
 </div>
-<div class="paragraph">
-<p>!!! Note</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>The extent of the support for every VCS differs and Git is the best supported
-one. Projectile supports some advanced features like working with Git submodules
-and using `git-grep` instead GNU grep.</pre>
-</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The extent of the support for every VCS differs and Git is the best supported
+ one. Projectile supports some advanced features like working with Git submodules
+ and using <code>git-grep</code> instead GNU grep.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>You need to know only a handful of Projectile commands to start benefiting from it.</p>
@@ -242,14 +251,18 @@ and using `git-grep` instead GNU grep.</pre>
 <div class="sect1">
 <h2 id="interactive-commands"><a class="anchor" href="#interactive-commands"></a>Interactive Commands</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>!!! Note</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Projectile doesn't have a default key prefix for its commands, but all the examples
-in the manual assume you've opted for `s-p` (`super`-p).</pre>
-</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Projectile doesn&#8217;t have a default key prefix for its commands, but all the examples
+ in the manual assume you&#8217;ve opted for <kbd>s-p</kbd> (<code>super</code>-p).
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Here&#8217;s a list of the interactive Emacs Lisp functions, provided by Projectile:</p>

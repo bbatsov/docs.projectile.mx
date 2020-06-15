@@ -148,6 +148,20 @@
 <p>I wanted a name that&#8217;s not as boring as <code>project.el</code> and implies that your
 interaction with projects is going to speed up significantly. :-)</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Funny enough, a few years after Projectile was created, another similar
+project called <code>project.el</code> was born. Despite its boring name it&#8217;s a great
+project and happens to be part of Emacs.
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -163,15 +177,26 @@ much attention to the TRAMP support. It&#8217;s mostly community-maintained.</p>
 <h2 id="why-does-projectile-violate-the-rule-not-to-bind-keys-in-the-user-keymap"><a class="anchor" href="#why-does-projectile-violate-the-rule-not-to-bind-keys-in-the-user-keymap"></a>Why does Projectile violate the rule not to bind keys in the user keymap?</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>I opted for the <code>C-c p</code> prefix fully aware that this violates <a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Key-Binding-Conventions.html">a very
+<p>Historically Projectile used to use <code>C-c p</code> as the prefix for all of its commands.
+I opted for the <code>C-c p</code> prefix fully aware that this violates <a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Key-Binding-Conventions.html">a very
 established Emacs
 convention</a>,
 mostly because it felt practical and because pressing <code>C-c C-p</code> is not
 super convenient for many people. I&#8217;ve come to regret this decision,
 though, and it will likely be reverted down the road.</p>
 </div>
-<div class="paragraph">
-<p><strong>Update</strong> This was changed in Projectile 2.0.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This was changed in Projectile 2.0. Currently Projectile requires
+users to select a prefix key for its commands explicitly.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
