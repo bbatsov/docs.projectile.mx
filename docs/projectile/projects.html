@@ -327,6 +327,7 @@ initialization code</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(projectile-register-project-type 'npm '("package.json")
+                                  :project-file "package.json"
 				  :compile "npm install"
 				  :test "npm test"
 				  :run "npm start"
@@ -342,7 +343,14 @@ initialization code</p>
 <p>add your own type of project, in this case <code>npm</code> package.</p>
 </li>
 <li>
-<p>add a file in a root of the project that helps to identify the type, in this case it is <code>package.json</code>.</p>
+<p>add a list of files and/or folders in a root of the project that helps to identify the type, in this case it is only <code>package.json</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>add <em>root-marker</em>, which is typically the primary project configuration file. In this case that&#8217;s <code>package.json</code>.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>add <em>compile-command</em>, in this case it is <code>npm install</code>.</p>
@@ -359,6 +367,46 @@ initialization code</p>
 </ol>
 </div>
 <div class="paragraph">
+<p>Let&#8217;s see a couple of more complex examples.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">;; Ruby
+(projectile-register-project-type 'ruby-rspec '("Gemfile" "lib" "spec")
+                                  :project-file "Gemfile"
+                                  :compile "bundle exec rake"
+                                  :src-dir "lib/"
+                                  :test "bundle exec rspec"
+                                  :test-dir "spec/"
+                                  :test-suffix "_spec")
+
+(projectile-register-project-type 'ruby-test '("Gemfile" "lib" "test")
+                                  :project-file "Gemfile"
+                                  :compile"bundle exec rake"
+                                  :src-dir "lib/"
+                                  :test "bundle exec rake test"
+                                  :test-suffix "_test")
+
+(projectile-register-project-type 'rails-test '("Gemfile" "app" "lib" "db" "config" "test")
+                                  :project-file "Gemfile"
+                                  :compile "bundle exec rails server"
+                                  :src-dir "lib/"
+                                  :test "bundle exec rake test"
+                                  :test-suffix "_test")
+
+(projectile-register-project-type 'rails-rspec '("Gemfile" "app" "lib" "db" "config" "spec")
+                                  :project-file "Gemfile"
+                                  :compile "bundle exec rails server"
+                                  :src-dir "lib/"
+                                  :test "bundle exec rspec"
+                                  :test-dir "spec/"
+                                  :test-suffix "_spec")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>All those projects are using <code>Gemfile</code> (`bundler&#8217;s project file), but they have different directory structures.</p>
+</div>
+<div class="paragraph">
 <p>The available options are:</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
@@ -373,6 +421,10 @@ initialization code</p>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">:project-file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A file, relative to the project root, typically the main project file (e.g. <code>pom.xml</code> for Maven projects).</p></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">:compilation-dir</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A path, relative to the project root, from where to run the tests and compilation commands.</p></td>
