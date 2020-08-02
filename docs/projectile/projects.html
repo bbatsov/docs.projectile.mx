@@ -7,7 +7,7 @@
     <link rel="canonical" href="https://docs.projectile.mx/projectile/projects.html">
     <link rel="prev" href="usage.html">
     <link rel="next" href="configuration.html">
-    <meta name="generator" content="Antora 2.0.0">
+    <meta name="generator" content="Antora 2.3.3">
     <link rel="stylesheet" href="../_/css/site.css">
 <link rel="stylesheet" href="../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
@@ -344,13 +344,9 @@ initialization code</p>
 </li>
 <li>
 <p>add a list of files and/or folders in a root of the project that helps to identify the type, in this case it is only <code>package.json</code>.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>add <em>root-marker</em>, which is typically the primary project configuration file. In this case that&#8217;s <code>package.json</code>.</p>
 </li>
-</ul>
-</div>
+<li>
+<p>add <em>project-file</em>, which is typically the primary project configuration file. In this case that&#8217;s <code>package.json</code>.</p>
 </li>
 <li>
 <p>add <em>compile-command</em>, in this case it is <code>npm install</code>.</p>
@@ -371,7 +367,7 @@ initialization code</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">;; Ruby
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">;; Ruby + RSpec
 (projectile-register-project-type 'ruby-rspec '("Gemfile" "lib" "spec")
                                   :project-file "Gemfile"
                                   :compile "bundle exec rake"
@@ -380,6 +376,7 @@ initialization code</p>
                                   :test-dir "spec/"
                                   :test-suffix "_spec")
 
+;; Ruby + Minitest
 (projectile-register-project-type 'ruby-test '("Gemfile" "lib" "test")
                                   :project-file "Gemfile"
                                   :compile"bundle exec rake"
@@ -387,6 +384,7 @@ initialization code</p>
                                   :test "bundle exec rake test"
                                   :test-suffix "_test")
 
+;; Rails + Minitest
 (projectile-register-project-type 'rails-test '("Gemfile" "app" "lib" "db" "config" "test")
                                   :project-file "Gemfile"
                                   :compile "bundle exec rails server"
@@ -394,6 +392,7 @@ initialization code</p>
                                   :test "bundle exec rake test"
                                   :test-suffix "_test")
 
+;; Rails + RSpec
 (projectile-register-project-type 'rails-rspec '("Gemfile" "app" "lib" "db" "config" "spec")
                                   :project-file "Gemfile"
                                   :compile "bundle exec rails server"
@@ -407,7 +406,7 @@ initialization code</p>
 <p>All those projects are using <code>Gemfile</code> (`bundler&#8217;s project file), but they have different directory structures.</p>
 </div>
 <div class="paragraph">
-<p>The available options are:</p>
+<p>Bellow is a listing of all the available options for <code>projectile-register-project-type</code>:</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -992,6 +991,7 @@ external command or an Emacs Lisp function:</p>
 </div>
 <footer class="footer">
   <p>Copyright (C) 2011-2020 <a href="https://metaredux.com">Bozhidar Batsov</a> and Projectile contributors.</p>
+  <p>Except where otherwise noted, docs.projectile.mx is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0).</p>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
 <script type="text/javascript">
