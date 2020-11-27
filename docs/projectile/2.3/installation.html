@@ -53,7 +53,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="projectile" data-version="2.2">
+<div class="nav-container" data-component="projectile" data-version="2.3">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -100,7 +100,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Projectile</span>
-    <span class="version">2.2</span>
+    <span class="version">2.3</span>
   </div>
   <ul class="components">
     <li class="component is-current">
@@ -109,11 +109,11 @@
         <li class="version is-latest">
           <a href="../index.html">master</a>
         </li>
-        <li class="version">
-          <a href="../2.3/index.html">2.3</a>
-        </li>
         <li class="version is-current">
-          <a href="index.html">2.2</a>
+          <a href="index.html">2.3</a>
+        </li>
+        <li class="version">
+          <a href="../2.2/index.html">2.2</a>
         </li>
       </ul>
     </li>
@@ -133,14 +133,14 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">2.2</button>
+  <button class="version-menu-toggle" title="Show other versions of page">2.3</button>
   <div class="version-menu">
     <a class="version" href="../installation.html">master</a>
-    <a class="version" href="../2.3/installation.html">2.3</a>
-    <a class="version is-current" href="installation.html">2.2</a>
+    <a class="version is-current" href="installation.html">2.3</a>
+    <a class="version" href="../2.2/installation.html">2.2</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/bbatsov/projectile/blob/v2.2.0/doc/modules/ROOT/pages/installation.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/bbatsov/projectile/blob/v2.3.0-antora/doc/modules/ROOT/pages/installation.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <article class="doc">
@@ -188,7 +188,7 @@ and <a href="http://melpa.org">MELPA</a>.</p>
 <p>You can install Projectile with the following command:</p>
 </div>
 <div class="paragraph">
-<p><kbd>M-x package-install [RET</kbd> projectile [RET]]</p>
+<p><kbd>M-x</kbd> <code>package-install</code> <kbd>RET</kbd> <code>projectile</code> <kbd>RET</kbd></p>
 </div>
 <div class="paragraph">
 <p>or by adding this bit of Emacs Lisp code to your Emacs initialization file
@@ -204,7 +204,7 @@ and <a href="http://melpa.org">MELPA</a>.</p>
 <p>If the installation doesn&#8217;t work try refreshing the package list:</p>
 </div>
 <div class="paragraph">
-<p><kbd>M-x package-refresh-contents [RET</kbd>]</p>
+<p><kbd>M-x</kbd> <code>package-refresh-contents</code> <kbd>RET</kbd></p>
 </div>
 <div class="paragraph">
 <p>Keep in mind that MELPA packages are built automatically from
@@ -284,10 +284,11 @@ the <code>master</code> branch, declare the following in your Emacs initializati
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(use-package projectile
   :ensure t
-  :config
-  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
-  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-  (projectile-mode +1))</code></pre>
+  :init
+  (projectile-mode +1)
+  :bind (:map projectile-mode-map
+              ("s-p" . projectile-command-map)
+              ("C-c p" . projectile-command-map)))</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -299,10 +300,11 @@ releases of Projectile, you&#8217;d declare the following:</p>
 <pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(use-package projectile
   :ensure t
   :pin melpa-stable
-  :config
-  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
-  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-  (projectile-mode +1))</code></pre>
+  :init
+  (projectile-mode +1)
+  :bind (:map projectile-mode-map
+              ("s-p" . projectile-command-map)
+              ("C-c p" . projectile-command-map)))</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -327,7 +329,7 @@ the <a href="https://github.com/dimitri/el-get">el-get</a> package manager.</p>
 following command:</p>
 </div>
 <div class="paragraph">
-<p><kbd>M-x el-get-install [RET</kbd> projectile [RET]]</p>
+<p><kbd>M-x</kbd> <code>el-get-install</code> <kbd>RET</kbd> <code>projectile</code> <kbd>RET</kbd></p>
 </div>
 </div>
 </div>

@@ -53,7 +53,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="projectile" data-version="2.2">
+<div class="nav-container" data-component="projectile" data-version="2.3">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -100,7 +100,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Projectile</span>
-    <span class="version">2.2</span>
+    <span class="version">2.3</span>
   </div>
   <ul class="components">
     <li class="component is-current">
@@ -109,11 +109,11 @@
         <li class="version is-latest">
           <a href="../index.html">master</a>
         </li>
-        <li class="version">
-          <a href="../2.3/index.html">2.3</a>
-        </li>
         <li class="version is-current">
-          <a href="index.html">2.2</a>
+          <a href="index.html">2.3</a>
+        </li>
+        <li class="version">
+          <a href="../2.2/index.html">2.2</a>
         </li>
       </ul>
     </li>
@@ -133,14 +133,14 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">2.2</button>
+  <button class="version-menu-toggle" title="Show other versions of page">2.3</button>
   <div class="version-menu">
     <a class="version" href="../contributing.html">master</a>
-    <a class="version" href="../2.3/contributing.html">2.3</a>
-    <a class="version is-current" href="contributing.html">2.2</a>
+    <a class="version is-current" href="contributing.html">2.3</a>
+    <a class="version" href="../2.2/contributing.html">2.2</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/bbatsov/projectile/blob/v2.2.0/doc/modules/ROOT/pages/contributing.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/bbatsov/projectile/blob/v2.3.0-antora/doc/modules/ROOT/pages/contributing.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <article class="doc">
@@ -160,8 +160,9 @@ new GitHub issue).</p>
 </div>
 <div class="paragraph">
 <p>It&#8217;s usually a good idea to try to reproduce (obscure) bugs in isolation. You
-can do this by cloning Projectile&#8217;s GitHub repo and running <code>make run-projectile</code> inside
-it.  This will bring up Emacs with only the latest version of Projectile loaded. By
+can do this by cloning Projectile&#8217;s GitHub repo and running <code>eldev emacs</code> inside
+it (you need to install [Eldev](<a href="https://github.com/doublep/eldev" class="bare">https://github.com/doublep/eldev</a>) tool first).
+This will bring up Emacs with only the latest version of Projectile loaded. By
 starting fresh, with the latest code, we can ensure that the problem at hand
 isn&#8217;t already fixed or caused by interactions with other packages.</p>
 </div>
@@ -287,17 +288,25 @@ You&#8217;ll need commit access to the repository for this to work.
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ cd /path/to/projectile
-$ make update
-$ make compile
-$ make test</code></pre>
+$ eldev test</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Run all tests with:</p>
+<p>If you need to make sure dependencies are at the latest version:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ make test</code></pre>
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ eldev update</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Run all tests with Projectile installed as an Emacs package
+(i.e. byte-compiled and all that; this won&#8217;t affect your normal Emacs
+though):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ eldev -p test</code></pre>
 </div>
 </div>
 <div class="paragraph">
