@@ -578,47 +578,6 @@ want to set</p>
 top-level directory.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="project-specific-compilation-buffers"><a class="anchor" href="#project-specific-compilation-buffers"></a>Project-specific Compilation Buffers</h3>
-<div class="paragraph">
-<p>This affects all commands built on top of <code>projectile&#8212;&#8203;run-project-cmd</code> like:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>projectile-configure-project</code></p>
-</li>
-<li>
-<p><code>projectile-run-project</code></p>
-</li>
-<li>
-<p><code>projectile-test-project</code></p>
-</li>
-<li>
-<p><code>projectile-install-project</code></p>
-</li>
-<li>
-<p><code>projectile-package-project</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Normally, the buffers created by those commands would be shared (overwritten)
-between projects, but it&#8217;s also possible to make the compilation buffer names
-project-specific. Currently, this requires that the user explicitly set:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(setq compilation-buffer-name-function
-      #'projectile-compilation-buffer-name)
-(setq compilation-save-buffers-predicate
-      #'projectile-current-project-buffer-p)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Both of these degrade properly when not inside a project.</p>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -663,6 +622,10 @@ on the <code>default</code> completion system.</p>
 <pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(setq projectile-completion-system 'ido)</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>As noted above, Projectile will auto-detect <code>ido-mode</code> if enabled, so the
+above configuration is not needed most of the time.</p>
+</div>
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -673,7 +636,7 @@ on the <code>default</code> completion system.</p>
 As already noted above if you&#8217;re going to use the <code>ido</code> completion it&#8217;s
  <strong>extremely highly</strong> recommended that you install the optional
  <a href="https://github.com/lewang/flx">flx-ido package</a>, which provides a much
- more powerful alternative to <code>ido&#8217;s built-in `flex</code> matching.
+ more powerful alternative to <code>ido</code>'s built-in <code>flex</code> matching.
 </td>
 </tr>
 </table>
@@ -688,6 +651,24 @@ As already noted above if you&#8217;re going to use the <code>ido</code> complet
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(setq projectile-completion-system 'ivy)</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>As noted above, Projectile will auto-detect <code>ivy-mode</code> if enabled, so the
+above configuration is not needed most of the time.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+It&#8217;s recommended to also install the
+ <a href="https://github.com/raxod502/prescient.el">ivy-prescient package</a>, which provides a much
+ more powerful alternative to <code>ivy</code>'s built-in matching/sorting.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -711,6 +692,49 @@ the file name (not including path) and if the file selected is not
 unique, another completion with names relative to project root
 appears.</p>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="project-specific-compilation-buffers"><a class="anchor" href="#project-specific-compilation-buffers"></a>Project-specific Compilation Buffers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This affects all commands built on top of <code>projectile&#8212;&#8203;run-project-cmd</code> like:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>projectile-configure-project</code></p>
+</li>
+<li>
+<p><code>projectile-run-project</code></p>
+</li>
+<li>
+<p><code>projectile-test-project</code></p>
+</li>
+<li>
+<p><code>projectile-install-project</code></p>
+</li>
+<li>
+<p><code>projectile-package-project</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Normally, the buffers created by those commands would be shared (overwritten)
+between projects, but it&#8217;s also possible to make the compilation buffer names
+project-specific. Currently, this requires that the user explicitly set:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(setq compilation-buffer-name-function
+      #'projectile-compilation-buffer-name)
+(setq compilation-save-buffers-predicate
+      #'projectile-current-project-buffer-p)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Both of these degrade properly when not inside a project.</p>
 </div>
 </div>
 </div>
