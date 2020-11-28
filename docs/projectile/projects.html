@@ -153,6 +153,40 @@
 without the need for any configuration. To achieve this it contains a lot of
 project detection logic and project type specific logic.</p>
 </div>
+<div class="paragraph">
+<p>Broadly speaking, Projectile identifies projects like this:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Directories under version control (e.g. a Git repo)</p>
+</li>
+<li>
+<p>Directories that contain some project description file (e.g. a <code>Gemfile</code> for Ruby projects)</p>
+</li>
+<li>
+<p>Directories that contain the special <code>.projectile</code> file</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>While Projectile aims to recognize most project types out-of-the-box, it&#8217;s also extremely
+flexible configuration-wise, and you can easily alter the project detection logic.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you&#8217;d like to override the default project detection functions you should
+check out <code>projectile-project-root-files-functions</code>. We&#8217;ll discuss how to tweak in more
+details later in the documentation.
+</td>
+</tr>
+</table>
+</div>
 <div class="sect2">
 <h3 id="version-control-systems"><a class="anchor" href="#version-control-systems"></a>Version Control Systems</h3>
 <div class="paragraph">
