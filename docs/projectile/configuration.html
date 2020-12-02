@@ -467,9 +467,10 @@ switching projects. If you want to include the current project, customize
 variable <code>projectile-current-project-on-switch</code>.</p>
 </div>
 <div class="paragraph">
-<p>When running <code>projectile-switch-project</code> (<kbd>s-p p</kbd>) Projectile invokes
-the command specified in <code>projectile-switch-project-action</code> (by default it is
-<code>projectile-find-file</code>).</p>
+<p>When running <code>projectile-switch-project</code> (<kbd>s-p p</kbd>) and
+<code>projectile-switch-open-project</code> (<kbd>s-p q</kbd>) Projectile invokes the
+command specified in <code>projectile-switch-project-action</code> (by default it
+is <code>projectile-find-file</code>).</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -478,7 +479,7 @@ the command specified in <code>projectile-switch-project-action</code> (by defau
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Invoking the command with a prefix argument (&lt;kbd&gt;C-u s-p p&lt;/kbd&gt;) will trigger
+Invoking the command with a prefix argument (<kbd>C-u s-p p</kbd> or <kbd>C-u s-p q</kbd>) will trigger
  the Projectile Commander, which gives you quick access to most common commands
  you might want to invoke on a project.
 </td>
