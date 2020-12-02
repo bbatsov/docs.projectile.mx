@@ -491,14 +491,125 @@ may prefer to alter the value of <code>projectile-switch-project-action</code>:<
 </div>
 <div class="sect2">
 <h3 id="projectile-find-file"><a class="anchor" href="#projectile-find-file"></a><code>projectile-find-file</code></h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This is the default.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
-<p>This is the default.  With this setting, once you have selected your
+<p>With this setting, once you have selected your
 project via Projectile&#8217;s completion system (see below), you will
 remain in the completion system to select a file to visit. <code>projectile-find-file</code>
 is capable of retrieving files in all sub-projects under the project root,
 such as Git submodules. Currently, only Git is supported. Support for other VCS
 will be added in the future.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="projectile-commander"><a class="anchor" href="#projectile-commander"></a><code>projectile-commander</code></h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This is the recommended option for people who find themselves often needing
+to invoke a different action on project switch.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>With this setting, after selecting a project to switch to, you&#8217;ll be prompted to specify the action to take with a 1-character mnemonic.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Keybinding</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>?</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Commander help buffer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>D</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Open project root in dired.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>R</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Regenerate the project&#8217;s [e</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">g]tags.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>T</kbd></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find test file in project.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>V</kbd></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Browse dirty projects</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>a</kbd></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Run ag on project.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>b</kbd></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Switch to project buffer.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>d</kbd></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find directory in project.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>e</kbd></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find recently visited file in project.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>f</kbd></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find file in project.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>g</kbd></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Run grep on project.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>j</kbd></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find tag in project.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>k</kbd></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kill all project buffers.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>o</kbd></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Run multi-occur on project buffers.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>r</kbd></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Replace a string in the project.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s</kbd></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Switch project.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>v</kbd></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="projectile-find-file-in-known-projects"><a class="anchor" href="#projectile-find-file-in-known-projects"></a><code>projectile-find-file-in-known-projects</code></h3>
