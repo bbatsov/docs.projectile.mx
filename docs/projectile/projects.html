@@ -181,7 +181,7 @@ flexible configuration-wise, and you can easily alter the project detection logi
 </td>
 <td class="content">
 If you&#8217;d like to override the default project detection functions you should
-check out <code>projectile-project-root-files-functions</code>. We&#8217;ll discuss how to tweak in more
+check out <code>projectile-project-root-functions</code>. We&#8217;ll discuss how to tweak in more
 details later in the documentation.
 </td>
 </tr>
@@ -797,7 +797,7 @@ and apply them differently to projects.</p>
 <div class="paragraph">
 <p>Project detection is pretty simple - Projectile just runs a list of
 project detection functions
-(<code>projectile-project-root-files-functions</code>) until one of them returns
+(<code>projectile-project-root-functions</code>) until one of them returns
 a project directory.</p>
 </div>
 <div class="paragraph">
@@ -805,11 +805,11 @@ a project directory.</p>
 defaults for it, you can tweak it however you see fit.</p>
 </div>
 <div class="paragraph">
-<p>Let&#8217;s take a closer look at <code>projectile-project-root-files-functions</code>:</p>
+<p>Let&#8217;s take a closer look at <code>projectile-project-root-functions</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(defcustom projectile-project-root-files-functions
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(defcustom projectile-project-root-functions
   '(projectile-root-local
     projectile-root-bottom-up
     projectile-root-top-down
@@ -830,7 +830,7 @@ precedence with respect to project detection. Let&#8217;s examine the defaults:<
 <p><code>projectile-root-local</code> looks for project path set via the buffer-local variable <code>projectile-project-root</code>. Typically you&#8217;d set this variable via <code>.dir-locals.el</code> and it will take precedence over everything else.</p>
 </li>
 <li>
-<p><code>projectile-root-bottom-up</code> will start looking for a project marker file/folder(e.g. <code>.projectile</code>, <code>.hg</code>, <code>.git</code>) from the current folder (a.k.a. <code>default-directory</code> in Emacs lingo) up the directory tree. It will return the first match it discovers. The assumption is pretty simple - the root marker appear only once, at the root folder of a project. If a root marker appear in several nested folders (e.g. you&#8217;ve got nested git projects), the bottom-most (closest to the current dir) match has precedence. You can customize the root markers recognized by this function via <code>projectile-project-root-files-functions</code></p>
+<p><code>projectile-root-bottom-up</code> will start looking for a project marker file/folder(e.g. <code>.projectile</code>, <code>.hg</code>, <code>.git</code>) from the current folder (a.k.a. <code>default-directory</code> in Emacs lingo) up the directory tree. It will return the first match it discovers. The assumption is pretty simple - the root marker appear only once, at the root folder of a project. If a root marker appear in several nested folders (e.g. you&#8217;ve got nested git projects), the bottom-most (closest to the current dir) match has precedence. You can customize the root markers recognized by this function via <code>projectile-project-root-functions</code></p>
 </li>
 <li>
 <p><code>projectile-root-top-down</code> is similar, but it will return the top-most (farthest from the current directory) match. It&#8217;s configurable via <code>projectile-project-root-files</code> and all project manifest markers like <code>pom.xml</code>, <code>Gemfile</code>, <code>project.clj</code>, etc go there.</p>
@@ -854,7 +854,20 @@ precedence with respect to project detection. Let&#8217;s examine the defaults:<
   (let ((default-directory dir))
     (vc-root-dir)))
 
-(setq projectile-project-root-files-functions '(projectile-vc-root-dir))</code></pre>
+(setq projectile-project-root-functions '(projectile-vc-root-dir))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Similarly, you can leverage the built-in <code>project.el</code> like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">;; we need this wrapper to match Projectile's API
+(defun projectile-project-current (dir)
+  "Retrieve the root directory of the project at DIR using `project-current'."
+  (cdr (project-current nil dir)))
+
+(setq projectile-project-root-functions '(projectile-project-current))</code></pre>
 </div>
 </div>
 </div>
