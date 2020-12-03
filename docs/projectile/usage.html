@@ -288,13 +288,31 @@ The extent of the support for every VCS differs and Git is the best supported
 <p>Switch project (<kbd>s-p p</kbd>) (you can also switch between open projects with <kbd>s-p q</kbd>)</p>
 </li>
 <li>
-<p>Grep in project (<kbd>s-p s g</kbd>)</p>
+<p>Grep (search for text/regexp) in project (<kbd>s-p s g</kbd>) (<code>grep</code> alternatives like <code>ag</code>, <code>pt</code> and <code>rg</code> are also supported)</p>
 </li>
 <li>
 <p>Replace in project (<kbd>s-p r</kbd>)</p>
 </li>
 <li>
-<p>Invoke a command via the Projectile Commander (<kbd>s-p m</kbd>)</p>
+<p>Invoke any Projectile command via the Projectile Commander (<kbd>s-p m</kbd>)</p>
+</li>
+<li>
+<p>Toggle between implementation and test (<kbd>s-p t</kbd>)</p>
+</li>
+<li>
+<p>Toggle between related files (e.g. <code>foo.h</code> &lt;&#8594; <code>foo.c</code> and <code>Gemfile</code> &lt;&#8594; <code>Gemfile.lock</code>)</p>
+</li>
+<li>
+<p>Run a shell command in the root of the project (<kbd>s-p !</kbd> for a sync command and <kbd>s-p &amp;</kbd> for an async command)</p>
+</li>
+<li>
+<p>Run various pre-defined project commands like:</p>
+</li>
+<li>
+<p>build/compile project (<kbd>s-p c</kbd>)</p>
+</li>
+<li>
+<p>test project (<kbd>s-p T</kbd>)</p>
 </li>
 </ul>
 </div>
@@ -533,6 +551,30 @@ Projectile doesn&#8217;t have a default key prefix for its commands, but all the
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p m</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Run the commander (an interface to run commands with a single key).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p x e</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start or visit an <code>eshell</code> for the project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p x i</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start or visit an <code>ielm</code> (Elisp REPL) for the project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p x t</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start or visit an <code>ansi-term</code> for the project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p x s</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start or visit a <code>shell</code> for the project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p x g</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start or visit a <code>gdb</code> for the project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p x v</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start or visit a <code>vterm</code> for the project.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p ESC</kbd></p></td>
