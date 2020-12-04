@@ -1071,7 +1071,7 @@ your project, you could customize it with the following:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="configure-a-projects-compilation-test-and-run-commands"><a class="anchor" href="#configure-a-projects-compilation-test-and-run-commands"></a>Configure a Project&#8217;s Compilation, Test and Run commands</h2>
+<h2 id="configure-a-projects-lifecycle-commands"><a class="anchor" href="#configure-a-projects-lifecycle-commands"></a>Configure a Project&#8217;s Lifecycle Commands</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>There are a few variables that are intended to be customized via <code>.dir-locals.el</code>.</p>
@@ -1079,10 +1079,19 @@ your project, you could customize it with the following:</p>
 <div class="ulist">
 <ul>
 <li>
+<p>for configuration - <code>projectile-project-configure-cmd</code></p>
+</li>
+<li>
 <p>for compilation - <code>projectile-project-compilation-cmd</code></p>
 </li>
 <li>
 <p>for testing - <code>projectile-project-test-cmd</code></p>
+</li>
+<li>
+<p>for installation - <code>projectile-project-install-cmd</code></p>
+</li>
+<li>
+<p>for packaging - <code>projectile-project-package-cmd</code></p>
 </li>
 <li>
 <p>for running - <code>projectile-project-run-cmd</code></p>
