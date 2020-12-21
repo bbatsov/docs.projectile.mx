@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
 <link rel="icon" href="../_/img/favicon.ico" type="image/x-icon">
+    <script>var uiRootPath = '../_'</script>
   </head>
   <body class="article">
 <header class="header" role="banner">
@@ -103,7 +104,7 @@
   </div>
   <ul class="components">
     <li class="component is-current">
-      <span class="title">Projectile</span>
+      <a class="title" href="index.html">Projectile</a>
       <ul class="versions">
         <li class="version is-current is-latest">
           <a href="index.html">master</a>
@@ -183,12 +184,26 @@ are available, Projectile will leverage them.</p>
 <div class="paragraph">
 <p>Projectile provides easy project management and navigation. The
 concept of a project is pretty basic - just a folder containing
-special file. Currently most VCS repos (e.g. <code>git</code>, <code>mercurial</code>, etc)
+special file.<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup> Currently most VCS repos (e.g. <code>git</code>, <code>mercurial</code>, etc)
 are considered projects by default, as are directories containing
 build tools (e.g. <code>maven</code>, <code>leiningen</code>, etc) or framework markers
 (e.g. Ruby on Rails). If you want to mark a folder manually as a
-project just create an empty <code>.projectile</code> file in it. Some of
-Projectile&#8217;s features:</p>
+project just create an empty <code>.projectile</code> file in it.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can learn more about Projectile&#8217;s notion of a project <a href="projects.html" class="page">here</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Here are some of Projectile&#8217;s features in no particular order:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -288,7 +303,7 @@ Projectile&#8217;s features:</p>
 </td>
 <td class="content">
 You can see in the modeline the keybindings that are used in the demo and
-the commands that they invoked.<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>
+the commands that they invoked.<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup>
 </td>
 </tr>
 </table>
@@ -368,7 +383,10 @@ A bit of trivia for you - Projectile was my very first open-source project and
 <div id="footnotes">
 <hr>
 <div class="footnote" id="_footnotedef_1">
-<a href="#_footnoteref_1">1</a>. Courtesy of <a href="https://metaredux.com/posts/2019/12/07/dead-simple-emacs-screencasts.html">keycast-mode</a>.
+<a href="#_footnoteref_1">1</a>. That file is called a "project marker" in Projectile&#8217;s lingo.
+</div>
+<div class="footnote" id="_footnotedef_2">
+<a href="#_footnoteref_2">2</a>. Courtesy of <a href="https://metaredux.com/posts/2019/12/07/dead-simple-emacs-screencasts.html">keycast-mode</a>.
 </div>
 </div>
 <nav class="pagination">
