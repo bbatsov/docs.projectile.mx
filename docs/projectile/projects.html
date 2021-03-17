@@ -144,6 +144,9 @@
   <div class="edit-this-page"><a href="https://github.com/bbatsov/projectile/edit/master/doc/modules/ROOT/pages/projects.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
 <article class="doc">
 <h1 class="page">Projects</h1>
 <div class="sect1">
@@ -756,11 +759,11 @@ and apply them differently to projects.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Relates files with extensions as the specified kind.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">tests-with-prefix EXTENSION PREFIX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">test-with-prefix EXTENSION PREFIX</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Relates files with prefix and extension as :test and :impl.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">tests-with-suffix EXTENSION SUFFIX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">test-with-suffix EXTENSION SUFFIX</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Relates files with suffix and extension as :test and :impl.</p></td>
 </tr>
 </tbody>
@@ -785,7 +788,7 @@ and apply them differently to projects.</p>
 
 (projectile-register-project-type
    ;; ...
-   :related-files-fn #'my/related-files)</code></pre>
+   :related-files-fn my/related-files)</code></pre>
 </div>
 </div>
 </div>
@@ -1117,9 +1120,6 @@ external command or an Emacs Lisp function:</p>
   <span class="next"><a href="configuration.html">Configuration</a></span>
 </nav>
 </article>
-<aside class="toc sidebar" data-title="Contents" data-levels="2">
-  <div class="toc-menu"></div>
-</aside>
   </div>
 </main>
 </div>
