@@ -282,6 +282,20 @@ least what&#8217;s being required).</p>
 effect of changes you have to restart Emacs.</p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="some-commands-not-working-properly-with-the-fish-shell"><a class="anchor" href="#some-commands-not-working-properly-with-the-fish-shell"></a>Some commands not working properly with the fish shell</h3>
+<div class="paragraph">
+<p>I&#8217;m not sure what&#8217;s causing this (likely different quoting rules), but it&#8217;s easy to fix it:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(setq shell-file-name "/bin/bash")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In general, I&#8217;ve noticed that Emacs doesn&#8217;t play very well with fish.</p>
+</div>
+</div>
 </div>
 </div>
 <nav class="pagination">
