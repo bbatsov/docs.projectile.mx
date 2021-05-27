@@ -54,7 +54,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="projectile" data-version="2.3">
+<div class="nav-container" data-component="projectile" data-version="2.4">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -101,7 +101,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Projectile</span>
-    <span class="version">2.3</span>
+    <span class="version">2.4</span>
   </div>
   <ul class="components">
     <li class="component is-current">
@@ -110,11 +110,11 @@
         <li class="version is-latest">
           <a href="../index.html">master</a>
         </li>
-        <li class="version">
-          <a href="../2.4/index.html">2.4</a>
-        </li>
         <li class="version is-current">
-          <a href="index.html">2.3</a>
+          <a href="index.html">2.4</a>
+        </li>
+        <li class="version">
+          <a href="../2.3/index.html">2.3</a>
         </li>
         <li class="version">
           <a href="../2.2/index.html">2.2</a>
@@ -137,15 +137,15 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">2.3</button>
+  <button class="version-menu-toggle" title="Show other versions of page">2.4</button>
   <div class="version-menu">
     <a class="version" href="../configuration.html">master</a>
-    <a class="version" href="../2.4/configuration.html">2.4</a>
-    <a class="version is-current" href="configuration.html">2.3</a>
+    <a class="version is-current" href="configuration.html">2.4</a>
+    <a class="version" href="../2.3/configuration.html">2.3</a>
     <a class="version" href="../2.2/configuration.html">2.2</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/bbatsov/projectile/blob/v2.3.0-antora/doc/modules/ROOT/pages/configuration.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/bbatsov/projectile/blob/v2.4.0/doc/modules/ROOT/pages/configuration.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
@@ -475,9 +475,10 @@ switching projects. If you want to include the current project, customize
 variable <code>projectile-current-project-on-switch</code>.</p>
 </div>
 <div class="paragraph">
-<p>When running <code>projectile-switch-project</code> (<kbd>s-p p</kbd>) Projectile invokes
-the command specified in <code>projectile-switch-project-action</code> (by default it is
-<code>projectile-find-file</code>).</p>
+<p>When running <code>projectile-switch-project</code> (<kbd>s-p p</kbd>) and
+<code>projectile-switch-open-project</code> (<kbd>s-p q</kbd>) Projectile invokes the
+command specified in <code>projectile-switch-project-action</code> (by default it
+is <code>projectile-find-file</code>).</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -486,7 +487,7 @@ the command specified in <code>projectile-switch-project-action</code> (by defau
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Invoking the command with a prefix argument (&lt;kbd&gt;C-u s-p p&lt;/kbd&gt;) will trigger
+Invoking the command with a prefix argument (<kbd>C-u s-p p</kbd> or <kbd>C-u s-p q</kbd>) will trigger
  the Projectile Commander, which gives you quick access to most common commands
  you might want to invoke on a project.
 </td>
@@ -499,14 +500,125 @@ may prefer to alter the value of <code>projectile-switch-project-action</code>:<
 </div>
 <div class="sect2">
 <h3 id="projectile-find-file"><a class="anchor" href="#projectile-find-file"></a><code>projectile-find-file</code></h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This is the default.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
-<p>This is the default.  With this setting, once you have selected your
+<p>With this setting, once you have selected your
 project via Projectile&#8217;s completion system (see below), you will
 remain in the completion system to select a file to visit. <code>projectile-find-file</code>
 is capable of retrieving files in all sub-projects under the project root,
 such as Git submodules. Currently, only Git is supported. Support for other VCS
 will be added in the future.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="projectile-commander"><a class="anchor" href="#projectile-commander"></a><code>projectile-commander</code></h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This is the recommended option for people who find themselves often needing
+to invoke a different action on project switch.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>With this setting, after selecting a project to switch to, you&#8217;ll be prompted to specify the action to take with a 1-character mnemonic.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Keybinding</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>?</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Commander help buffer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>D</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Open project root in dired.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>R</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Regenerate the project&#8217;s etags/gtags.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>T</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find test file in project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>V</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Browse dirty projects</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>a</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Run ag on project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>b</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Switch to project buffer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>d</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find directory in project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>e</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find recently visited file in project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>f</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find file in project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>g</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Run grep on project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>j</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find tag in project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>k</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kill all project buffers.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>o</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Run multi-occur on project buffers.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>r</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Replace a string in the project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Switch project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>v</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Open project root in vc-dir or magit.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="projectile-find-file-in-known-projects"><a class="anchor" href="#projectile-find-file-in-known-projects"></a><code>projectile-find-file-in-known-projects</code></h3>
@@ -586,8 +698,124 @@ want to set</p>
 top-level directory.</p>
 </div>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="completion-options"><a class="anchor" href="#completion-options"></a>Completion Options</h2>
+<div class="sectionbody">
 <div class="sect2">
-<h3 id="project-specific-compilation-buffers"><a class="anchor" href="#project-specific-compilation-buffers"></a>Project-specific Compilation Buffers</h3>
+<h3 id="auto-default"><a class="anchor" href="#auto-default"></a>Auto (default)</h3>
+<div class="paragraph">
+<p>By default Projectile detects the completion system in use, based
+on the mode variables <code>ido-mode</code>, <code>ivy-mode</code> and <code>helm-mode</code>.
+If none of those is activated, the <code>default</code> completion system is used.</p>
+</div>
+<div class="paragraph">
+<p>Unless for some reason you want to use a different completion system for Projetile than for the
+rest of Emacs, you&#8217;ll probably don&#8217;t want to select a particular completion system manually.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="basic-emacss-default"><a class="anchor" href="#basic-emacss-default"></a>Basic (Emacs&#8217;s default)</h3>
+<div class="paragraph">
+<p>If you don&#8217;t like <code>ido</code> and <code>ivy</code> you can use regular completion (based on <code>completing-read</code>):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(setq projectile-completion-system 'default)</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You might want to combine default completion with <code>icomplete-mode</code> for optimum results.
+Emacs 27 added <code>fido-mode</code> to <code>icomplete</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If you are using <code>fido-mode</code>, Projectile will
+use the <code>default</code> completion system. The same holds for <code>selectrum</code> which also relies
+on the <code>default</code> completion system.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ido"><a class="anchor" href="#ido"></a>Ido</h3>
+<div class="paragraph">
+<p>The <code>ido</code> completion system is extremely popular and it is built into Emacs.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(setq projectile-completion-system 'ido)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As noted above, Projectile will auto-detect <code>ido-mode</code> if enabled, so the
+above configuration is not needed most of the time.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+As already noted above if you&#8217;re going to use the <code>ido</code> completion it&#8217;s
+ <strong>extremely highly</strong> recommended that you install the optional
+ <a href="https://github.com/lewang/flx">flx-ido package</a>, which provides a much
+ more powerful alternative to <code>ido</code>'s built-in <code>flex</code> matching.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ivy-recommended"><a class="anchor" href="#ivy-recommended"></a>Ivy (recommended)</h3>
+<div class="paragraph">
+<p>Another completion option is <a href="https://github.com/abo-abo/swiper">ivy</a>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(setq projectile-completion-system 'ivy)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As noted above, Projectile will auto-detect <code>ivy-mode</code> if enabled, so the
+above configuration is not needed most of the time.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="custom-completion-function"><a class="anchor" href="#custom-completion-function"></a>Custom Completion Function</h3>
+<div class="paragraph">
+<p>You can also set <code>projectile-completion-system</code> to a function:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(setq projectile-completion-system #'my-custom-completion-fn)
+(setq projectile-completion-system
+      (lambda (prompt choices)
+        ;; ...
+        ))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>An example of a custom completion function is
+<a href="https://gist.github.com/rejeep/5933343">this one</a>, which only show
+the file name (not including path) and if the file selected is not
+unique, another completion with names relative to project root
+appears.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="project-specific-compilation-buffers"><a class="anchor" href="#project-specific-compilation-buffers"></a>Project-specific Compilation Buffers</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>This affects all commands built on top of <code>projectile&#8212;&#8203;run-project-cmd</code> like:</p>
 </div>
@@ -625,100 +853,6 @@ project-specific. Currently, this requires that the user explicitly set:</p>
 </div>
 <div class="paragraph">
 <p>Both of these degrade properly when not inside a project.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="completion-options"><a class="anchor" href="#completion-options"></a>Completion Options</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="auto-default"><a class="anchor" href="#auto-default"></a>Auto (default)</h3>
-<div class="paragraph">
-<p>By default Projectile detects the completion system in use, based
-on the mode variables <code>ido-mode</code>, <code>ivy-mode</code> and <code>helm-mode</code>.
-If none of those is activated, the <code>default</code> completion system is used.</p>
-</div>
-<div class="paragraph">
-<p>Unless for some reason you want to use a different completion system for Projetile than for the
-rest of Emacs, you&#8217;ll probably don&#8217;t want to select a particular completion system manually.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="basic-emacss-default"><a class="anchor" href="#basic-emacss-default"></a>Basic (Emacs&#8217;s default)</h3>
-<div class="paragraph">
-<p>If you don&#8217;t like <code>ido</code> and <code>ivy</code> you can use regular completion (based on <code>completing-read</code>):</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(setq projectile-completion-system 'default)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>You might want to combine default completion with <code>icomplete-mode</code> for optimum results.
-Emacs 27 added <code>fido-mode</code> to <code>icomplete</code>. If you are using <code>fido-mode</code>, Projectile will
-use the <code>default</code> completion system. The same holds for <code>selectrum</code> which also relies
-on the <code>default</code> completion system.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="ido"><a class="anchor" href="#ido"></a>Ido</h3>
-<div class="paragraph">
-<p>The <code>ido</code> completion system is extremely popular and it is built into Emacs.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(setq projectile-completion-system 'ido)</code></pre>
-</div>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-As already noted above if you&#8217;re going to use the <code>ido</code> completion it&#8217;s
- <strong>extremely highly</strong> recommended that you install the optional
- <a href="https://github.com/lewang/flx">flx-ido package</a>, which provides a much
- more powerful alternative to <code>ido&#8217;s built-in `flex</code> matching.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="ivy-recommended"><a class="anchor" href="#ivy-recommended"></a>Ivy (recommended)</h3>
-<div class="paragraph">
-<p>Another completion option is <a href="https://github.com/abo-abo/swiper">ivy</a>:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(setq projectile-completion-system 'ivy)</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="custom-completion-function"><a class="anchor" href="#custom-completion-function"></a>Custom Completion Function</h3>
-<div class="paragraph">
-<p>You can also set <code>projectile-completion-system</code> to a function:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(setq projectile-completion-system #'my-custom-completion-fn)
-(setq projectile-completion-system
-      (lambda (prompt choices)
-        ;; ...
-        ))</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>An example of a custom completion function is
-<a href="https://gist.github.com/rejeep/5933343">this one</a>, which only show
-the file name (not including path) and if the file selected is not
-unique, another completion with names relative to project root
-appears.</p>
-</div>
 </div>
 </div>
 </div>
@@ -793,6 +927,29 @@ The project name &amp; type will not appear when editing remote files
 </td>
 </tr>
 </table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="project-type-specific-configuration"><a class="anchor" href="#project-type-specific-configuration"></a>Project-type-specific Configuration</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="cmake"><a class="anchor" href="#cmake"></a>CMake</h3>
+<div class="paragraph">
+<p>Projectile supports <a href="https://cmake.org/cmake/help/git-stage/manual/cmake-presets.7.html">CMake presets</a>. Preset support is disabled by default, but can be enabled by setting <code>projectile-enable-cmake-presets</code> to non-nil. With preset-support enabled Projectile will parse the preset files and present the command-specific presets when executing a lifecycle command. In addition a <code><strong>no preset</strong></code> option is included for entering the command manually.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Preset support requires a CMake version that supports preset and for <code>json-parse-buffer</code> to be available.
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </div>

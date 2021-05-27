@@ -54,7 +54,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="projectile" data-version="2.2">
+<div class="nav-container" data-component="projectile" data-version="2.4">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -101,7 +101,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Projectile</span>
-    <span class="version">2.2</span>
+    <span class="version">2.4</span>
   </div>
   <ul class="components">
     <li class="component is-current">
@@ -110,14 +110,14 @@
         <li class="version is-latest">
           <a href="../index.html">master</a>
         </li>
-        <li class="version">
-          <a href="../2.4/index.html">2.4</a>
+        <li class="version is-current">
+          <a href="index.html">2.4</a>
         </li>
         <li class="version">
           <a href="../2.3/index.html">2.3</a>
         </li>
-        <li class="version is-current">
-          <a href="index.html">2.2</a>
+        <li class="version">
+          <a href="../2.2/index.html">2.2</a>
         </li>
       </ul>
     </li>
@@ -137,15 +137,15 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">2.2</button>
+  <button class="version-menu-toggle" title="Show other versions of page">2.4</button>
   <div class="version-menu">
     <a class="version" href="../usage.html">master</a>
-    <a class="version" href="../2.4/usage.html">2.4</a>
+    <a class="version is-current" href="usage.html">2.4</a>
     <a class="version" href="../2.3/usage.html">2.3</a>
-    <a class="version is-current" href="usage.html">2.2</a>
+    <a class="version" href="../2.2/usage.html">2.2</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/bbatsov/projectile/blob/v2.2.0/doc/modules/ROOT/pages/usage.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/bbatsov/projectile/blob/v2.4.0/doc/modules/ROOT/pages/usage.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
@@ -153,8 +153,7 @@
 </aside>
 <article class="doc">
 <h1 class="page">Usage</h1>
-<div class="sect1">
-<h2 id="basic-setup"><a class="anchor" href="#basic-setup"></a>Basic setup</h2>
+<div id="preamble">
 <div class="sectionbody">
 <div class="admonitionblock note">
 <table>
@@ -168,6 +167,22 @@ Everything in this section assumes you&#8217;ve enabled <code>projectile-mode</c
 </tr>
 </table>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="basic-setup"><a class="anchor" href="#basic-setup"></a>Basic setup</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this section we&#8217;ll cover the bare minimum of setup you might want to
+do. Projectile works fine with no setup, but if you tweak the configuration a
+bit you&#8217;ll get more out of it.</p>
+</div>
+<div class="paragraph">
+<p>Check out the <a href="configuration.html" class="page">"Configuration"</a> section of the manual
+for a lot more information about configuring Projectile.</p>
+</div>
+<div class="sect2">
+<h3 id="automated-project-discovery"><a class="anchor" href="#automated-project-discovery"></a>Automated Project Discovery</h3>
 <div class="paragraph">
 <p>To add a project to Projectile&#8217;s list of known projects, open a file
 in the project. If you have a projects directory, you can tell
@@ -176,12 +191,24 @@ projectile-discover-projects-in-directory</code>.</p>
 </div>
 <div class="paragraph">
 <p>You can go one step further and set a list of folders which Projectile
-is automatically going to check for projects:</p>
+is automatically going to check for projects on startup:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(setq projectile-project-search-path '("~/projects/" "~/work/"))</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>You can suppress the auto-discovery of projects on startup by setting
+<code>projectile-auto-discover</code> to <code>nil</code>. You can manually trigger the project
+discovery using <code>M-x projectile-discover-projects-in-search-path</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="minibuffer-completion"><a class="anchor" href="#minibuffer-completion"></a>Minibuffer Completion</h3>
+<div class="paragraph">
+<p>While Projectile works fine with Emacs&#8217;s default minibuffer completion system you&#8217;re highly encouraged to use some
+powerful alternative like <code>ido</code>, <code>ivy</code> or <code>selectrum</code>.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -190,17 +217,45 @@ is automatically going to check for projects:</p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-If you&#8217;re going to use the default <code>ido</code> completion it&#8217;s <strong>extremely
-highly</strong> recommended that you install the optional
+If you&#8217;re going to use the <code>ido</code> completion it&#8217;s <strong>highly</strong> recommended that you install the optional
 <a href="https://github.com/lewang/flx">flx-ido package</a>, which provides a much more powerful
-alternative to <code>ido&#8217;s built-in `flex</code> matching.
+alternative to <code>ido</code>'s built-in <code>flex</code> matching. Similarly, for <code>selectrum</code> it&#8217;s
+a good idea to enable <code>prescient</code> (a package similar to <code>flx</code>).
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="installing-external-tools"><a class="anchor" href="#installing-external-tools"></a>Installing External Tools</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Windows users can ignore this section unless they are using Emacs via WSL or <code>cygwin</code>.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Check out the <a href="configuration.html" class="page">"Configuration"</a> section of the manual
-for a lot more information about configuring Projectile.</p>
+<p>It&#8217;s recommended to install the following command-line tools:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>fd</code> (a super-fast alternative to <code>find</code>)</p>
+</li>
+<li>
+<p><code>ag</code> (a.k.a. <code>the_silver_searcher</code>, a powerful alternative to <code>grep</code>) or <code>rg</code> (a.k.a. <code>ripgrep</code>)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Projectile will make use of them automatically when available, and fallback to the standard Unix tools otherwise.</p>
+</div>
 </div>
 </div>
 </div>
@@ -214,15 +269,19 @@ ready for action. Projectile happens to recognize out of the box every common
 VCS and many popular project types for various programming languages.
 You can learn more about Projectile&#8217;s notion of a project <a href="projects.html" class="page">here</a>.</p>
 </div>
-<div class="paragraph">
-<p>!!! Note</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>The extent of the support for every VCS differs and Git is the best supported
-one. Projectile supports some advanced features like working with Git submodules
-and using `git-grep` instead GNU grep.</pre>
-</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The extent of the support for every VCS differs and Git is the best supported
+ one. Projectile supports some advanced features like working with Git submodules
+ and using <code>git-grep</code> instead GNU grep.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>You need to know only a handful of Projectile commands to start benefiting from it.</p>
@@ -233,16 +292,38 @@ and using `git-grep` instead GNU grep.</pre>
 <p>Find file in current project (<kbd>s-p f</kbd>)</p>
 </li>
 <li>
-<p>Switch project (<kbd>s-p p</kbd>)</p>
+<p>Switch project (<kbd>s-p p</kbd>) (you can also switch between open projects with <kbd>s-p q</kbd>)</p>
 </li>
 <li>
-<p>Grep in project (<kbd>s-p s g</kbd>)</p>
+<p>Grep (search for text/regexp) in project (<kbd>s-p s g</kbd>) (<code>grep</code> alternatives like <code>ag</code>, <code>pt</code> and <code>rg</code> are also supported)</p>
 </li>
 <li>
 <p>Replace in project (<kbd>s-p r</kbd>)</p>
 </li>
 <li>
-<p>Invoke a command via the Projectile Commander (<kbd>s-p m</kbd>)</p>
+<p>Invoke any Projectile command via the Projectile Commander (<kbd>s-p m</kbd>)</p>
+</li>
+<li>
+<p>Toggle between implementation and test (<kbd>s-p t</kbd>)</p>
+</li>
+<li>
+<p>Toggle between related files (e.g. <code>foo.h</code> &lt;&#8594; <code>foo.c</code> and <code>Gemfile</code> &lt;&#8594; <code>Gemfile.lock</code>) (<kbd>s-p a</kbd>)</p>
+</li>
+<li>
+<p>Run a shell command in the root of the project (<kbd>s-p !</kbd> for a sync command and <kbd>s-p &amp;</kbd> for an async command)</p>
+</li>
+<li>
+<p>Run various pre-defined project commands like:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>build/compile project (<kbd>s-p c</kbd>)</p>
+</li>
+<li>
+<p>test project (<kbd>s-p T</kbd>)</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -254,14 +335,18 @@ and using `git-grep` instead GNU grep.</pre>
 <div class="sect1">
 <h2 id="interactive-commands"><a class="anchor" href="#interactive-commands"></a>Interactive Commands</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>!!! Note</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Projectile doesn't have a default key prefix for its commands, but all the examples
-in the manual assume you've opted for `s-p` (`super`-p).</pre>
-</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Projectile doesn&#8217;t have a default key prefix for its commands, but all the examples
+ in the manual assume you&#8217;ve opted for <kbd>s-p</kbd> (<code>super</code>-p).
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Here&#8217;s a list of the interactive Emacs Lisp functions, provided by Projectile:</p>
@@ -467,12 +552,40 @@ in the manual assume you've opted for `s-p` (`super`-p).</pre>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Display a list of known projects you can switch to.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p q</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Display a list of open projects you can switch to.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p S</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Save all project buffers.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p m</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Run the commander (an interface to run commands with a single key).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p x e</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start or visit an <code>eshell</code> for the project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p x i</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start or visit an <code>ielm</code> (Elisp REPL) for the project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p x t</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start or visit an <code>ansi-term</code> for the project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p x s</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start or visit a <code>shell</code> for the project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p x g</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start or visit a <code>gdb</code> for the project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p x v</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start or visit a <code>vterm</code> for the project.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p ESC</kbd></p></td>
@@ -486,6 +599,11 @@ in the manual assume you've opted for `s-p` (`super`-p).</pre>
 <div class="paragraph">
 <p><kbd>s-p C-h</kbd></p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="customizing-projectiles-keybindings"><a class="anchor" href="#customizing-projectiles-keybindings"></a>Customizing Projectile&#8217;s Keybindings</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>It is possible to add additional commands to
 <code>projectile-command-map</code> referenced by the prefix key in
@@ -540,6 +658,112 @@ Note that the <code>Super</code> keybindings are not usable in Windows, as Windo
 </td>
 </tr>
 </table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="projectile-commander"><a class="anchor" href="#projectile-commander"></a>Projectile Commander</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Projectile&#8217;s Commander (<code>projectile-commander</code>) is a nifty utility for those of you who are struggling to remember a lot of keybindings. It provides a simple
+interface to most of Projectile&#8217;s commands via 1-character shortcuts that you
+need to press after invoking the commander (e.g. via <kbd>s-p m</kbd>).</p>
+</div>
+<div class="paragraph">
+<p>The commander was created with the idea to provide a powerful project switching command (it will be triggered if you press <kbd>C-u s-p p</kbd>), but it&#8217;s very useful on its own as well.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Keybinding</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>?</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Commander help buffer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>D</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Open project root in dired.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>R</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Regenerate the project&#8217;s etags/gtags.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>T</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find test file in project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>V</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Browse dirty projects</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>a</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Run ag on project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>b</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Switch to project buffer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>d</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find directory in project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>e</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find recently visited file in project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>f</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find file in project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>g</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Run grep on project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>j</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find tag in project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>k</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kill all project buffers.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>o</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Run multi-occur on project buffers.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>r</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Replace a string in the project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Switch project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>v</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Open project root in vc-dir or magit.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>You can add additional commands to the commander like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(def-projectile-commander-method ?f
+  "Find file in project."
+  (projectile-find-file))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Place such snippets after <code>projectile-mode</code>'s init code.</p>
 </div>
 </div>
 </div>

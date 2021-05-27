@@ -53,7 +53,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="projectile" data-version="2.2">
+<div class="nav-container" data-component="projectile" data-version="2.4">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -100,7 +100,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Projectile</span>
-    <span class="version">2.2</span>
+    <span class="version">2.4</span>
   </div>
   <ul class="components">
     <li class="component is-current">
@@ -109,14 +109,14 @@
         <li class="version is-latest">
           <a href="../index.html">master</a>
         </li>
-        <li class="version">
-          <a href="../2.4/index.html">2.4</a>
+        <li class="version is-current">
+          <a href="index.html">2.4</a>
         </li>
         <li class="version">
           <a href="../2.3/index.html">2.3</a>
         </li>
-        <li class="version is-current">
-          <a href="index.html">2.2</a>
+        <li class="version">
+          <a href="../2.2/index.html">2.2</a>
         </li>
       </ul>
     </li>
@@ -136,15 +136,15 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">2.2</button>
+  <button class="version-menu-toggle" title="Show other versions of page">2.4</button>
   <div class="version-menu">
     <a class="version" href="../index.html">master</a>
-    <a class="version" href="../2.4/index.html">2.4</a>
+    <a class="version is-current" href="index.html">2.4</a>
     <a class="version" href="../2.3/index.html">2.3</a>
-    <a class="version is-current" href="index.html">2.2</a>
+    <a class="version" href="../2.2/index.html">2.2</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/bbatsov/projectile/blob/v2.2.0/doc/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/bbatsov/projectile/blob/v2.4.0/doc/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
@@ -191,12 +191,26 @@ are available, Projectile will leverage them.</p>
 <div class="paragraph">
 <p>Projectile provides easy project management and navigation. The
 concept of a project is pretty basic - just a folder containing
-special file. Currently most VCS repos (e.g. <code>git</code>, <code>mercurial</code>, etc)
+special file.<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup> Currently most VCS repos (e.g. <code>git</code>, <code>mercurial</code>, etc)
 are considered projects by default, as are directories containing
 build tools (e.g. <code>maven</code>, <code>leiningen</code>, etc) or framework markers
 (e.g. Ruby on Rails). If you want to mark a folder manually as a
-project just create an empty <code>.projectile</code> file in it. Some of
-Projectile&#8217;s features:</p>
+project just create an empty <code>.projectile</code> file in it.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can learn more about Projectile&#8217;s notion of a project <a href="projects.html" class="page">here</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Here are some of Projectile&#8217;s features in no particular order:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -255,7 +269,7 @@ Projectile&#8217;s features:</p>
 <p>browse dirty version controlled projects</p>
 </li>
 <li>
-<p>support for multiple minibuffer completion/selection libraries (e.g. <code>ido</code>, <code>ivy</code> and <code>helm</code>)</p>
+<p>support for multiple minibuffer completion/selection libraries (<code>ido</code>, <code>ivy</code>, <code>helm</code> and the default completion system)</p>
 </li>
 </ul>
 </div>
@@ -295,8 +309,8 @@ Projectile&#8217;s features:</p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-You can see in the minibuffer the keybindings that are used in the demo and
-the commands that they invoked.<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>
+You can see in the modeline the keybindings that are used in the demo and
+the commands that they invoked.<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup>
 </td>
 </tr>
 </table>
@@ -307,18 +321,31 @@ the commands that they invoked.<sup class="footnote">[<a id="_footnoteref_1" cla
 <h2 id="supporting-projectile"><a class="anchor" href="#supporting-projectile"></a>Supporting Projectile</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>I&#8217;ve started working on Projectile in 2011 and I&#8217;ve supporting it ever since. It slowly grew from an obscure
+<p>I&#8217;ve started working on Projectile in 2011 and I&#8217;ve been maintaining it ever since. It slowly grew from an obscure
 project with a single user to one of the most popular packages in the realm of Emacs. It&#8217;s a fun project,
 but it also requires a lot of work.</p>
 </div>
 <div class="paragraph">
-<p>You can support my work on Projectile via
- <a href="https://www.paypal.me/bbatsov">PayPal</a>,
- <a href="https://www.patreon.com/bbatsov">Patreon</a> and
- <a href="https://github.com/sponsors/bbatsov">GitHub Sponsors</a>.</p>
+<p>You can support my work on Projectile (and all my other Emacs package) via one of the following platforms:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/sponsors/bbatsov">GitHub Sponsors</a></p>
+</li>
+<li>
+<p><a href="https://ko-fi.com/bbatsov">ko-fi</a></p>
+</li>
+<li>
+<p><a href="https://www.paypal.me/bbatsov">PayPal</a></p>
+</li>
+<li>
+<p><a href="https://www.patreon.com/bbatsov">Patreon</a></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Check out the <a href="contributing.html" class="page">"Contributing"</a> section of the docs for all the way in which you can help
+<p>Check out the <a href="contributing.html" class="page">"Contributing"</a> section of the docs for all the ways in which you can help
 Projectile.</p>
 </div>
 <div class="admonitionblock note">
@@ -336,10 +363,37 @@ A bit of trivia for you - Projectile was my very first open-source project and
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="whats-next"><a class="anchor" href="#whats-next"></a>What&#8217;s Next?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>So, what to do next? While you can peruse the documentation in whatever way you’d like, here are a few recommendations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="installation.html" class="page">Install</a> Projectile and get it <a href="usage.html" class="page">up and running</a></p>
+</li>
+<li>
+<p>Get familiar with <a href="projects.html" class="page">Projectile&#8217;s notion of projects</a></p>
+</li>
+<li>
+<p><a href="configuration.html" class="page">Configure</a> Projectile to your liking</p>
+</li>
+<li>
+<p>Explore the <a href="extensions.html" class="page">Projectile extensions</a> that can make you more productive</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 <div id="footnotes">
 <hr>
 <div class="footnote" id="_footnotedef_1">
-<a href="#_footnoteref_1">1</a>. Courtesy of <a href="https://metaredux.com/posts/2019/12/07/dead-simple-emacs-screencasts.html">keycast-mode</a>.
+<a href="#_footnoteref_1">1</a>. That file is called a "project marker" in Projectile&#8217;s lingo.
+</div>
+<div class="footnote" id="_footnotedef_2">
+<a href="#_footnoteref_2">2</a>. Courtesy of <a href="https://metaredux.com/posts/2019/12/07/dead-simple-emacs-screencasts.html">keycast-mode</a>.
 </div>
 </div>
 <nav class="pagination">
