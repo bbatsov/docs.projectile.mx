@@ -191,11 +191,14 @@ projectile-discover-projects-in-directory</code>.</p>
 </div>
 <div class="paragraph">
 <p>You can go one step further and set a list of folders which Projectile
-is automatically going to check for projects on startup:</p>
+is automatically going to check for projects on startup.</p>
+</div>
+<div class="paragraph">
+<p>Recursive discovery is configured by specifying the search depth in a cons cell:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(setq projectile-project-search-path '("~/projects/" "~/work/"))</code></pre>
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(setq projectile-project-search-path '("~/projects/" "~/work/" ("~/github" . 1)))</code></pre>
 </div>
 </div>
 <div class="paragraph">
