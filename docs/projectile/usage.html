@@ -211,7 +211,7 @@ discovery using <code>M-x projectile-discover-projects-in-search-path</code>.</p
 <h3 id="minibuffer-completion"><a class="anchor" href="#minibuffer-completion"></a>Minibuffer Completion</h3>
 <div class="paragraph">
 <p>While Projectile works fine with Emacs&#8217;s default minibuffer completion system you&#8217;re highly encouraged to use some
-powerful alternative like <code>ido</code>, <code>ivy</code> or <code>selectrum</code>.</p>
+powerful alternative like <code>ido</code>, <code>ivy</code>, <code>selectrum</code> or <code>vertico</code>.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -259,6 +259,18 @@ Windows users can ignore this section unless they are using Emacs via WSL or <co
 <div class="paragraph">
 <p>Projectile will make use of them automatically when available, and fallback to the standard Unix tools otherwise.</p>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You should also install the Emacs packages <code>ag</code>, <code>ripgrep</code> or <code>rg</code> if you want to make sure of Projectile&#8217;s commands <code>projectile-ag</code> and <code>projectile-ripgrep</code>.
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -298,7 +310,7 @@ The extent of the support for every VCS differs and Git is the best supported
 <p>Switch project (<kbd>s-p p</kbd>) (you can also switch between open projects with <kbd>s-p q</kbd>)</p>
 </li>
 <li>
-<p>Grep (search for text/regexp) in project (<kbd>s-p s g</kbd>) (<code>grep</code> alternatives like <code>ag</code>, <code>pt</code> and <code>rg</code> are also supported)</p>
+<p>Grep (search for text/regexp) in project (<kbd>s-p s g</kbd>)</p>
 </li>
 <li>
 <p>Replace in project (<kbd>s-p r</kbd>)</p>
@@ -423,6 +435,14 @@ Projectile doesn&#8217;t have a default key prefix for its commands, but all the
 <td class="tableblock halign-left valign-top"><p class="tableblock">Run grep on <code>projectile-grep-default-files</code> in the project.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p s s</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Runs <code>ag</code> (<code>the_silver_searcher</code>) on the project, performing a literal search. Requires the presence of <code>ag.el</code>. With a prefix argument it will perform a regex search.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p s r</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Runs <code>rg</code> (<code>ripgrep</code>) on the project, performing a literal search. Requires the presence of <code>rg.el</code> or <code>ripgrep.el</code>. With a prefix argument it will perform a regex search.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p v</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Run <code>vc-dir</code> on the root directory of the project.</p></td>
 </tr>
@@ -509,10 +529,6 @@ Projectile doesn&#8217;t have a default key prefix for its commands, but all the
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p E</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Opens the root <code>dir-locals-file</code> of the project.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p s s</kbd></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Runs <code>ag</code> on the project, performing a literal search. Requires the presence of <code>ag.el</code>. With a prefix argument it will perform a regex search.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p !</kbd></p></td>

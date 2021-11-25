@@ -703,6 +703,26 @@ top-level directory.</p>
 <div class="sect1">
 <h2 id="completion-options"><a class="anchor" href="#completion-options"></a>Completion Options</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Projectile supports all major minibuffer completion packages that
+exist today. Normally it will just detect what you&#8217;re using (e.g. <code>ivy</code>),
+but you can force a particular completion system via the variable
+<code>projectile-completion-system</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Historically <code>projectile-completion-system</code> defaulted to <code>ido</code>,
+but this was changed in version 2.3. You may need to enable <code>ido-mode</code>
+in your Emacs configuration if updating from an older version of Projectile.
+</td>
+</tr>
+</table>
+</div>
 <div class="sect2">
 <h3 id="auto-default"><a class="anchor" href="#auto-default"></a>Auto (default)</h3>
 <div class="paragraph">
@@ -711,14 +731,16 @@ on the mode variables <code>ido-mode</code>, <code>ivy-mode</code> and <code>hel
 If none of those is activated, the <code>default</code> completion system is used.</p>
 </div>
 <div class="paragraph">
-<p>Unless for some reason you want to use a different completion system for Projetile than for the
-rest of Emacs, you&#8217;ll probably don&#8217;t want to select a particular completion system manually.</p>
+<p>Unless for some reason you want to use a different completion system for
+Projectile than for the rest of Emacs (e.g. you normally use <code>icomplete-mode</code>,
+but want to use <code>ido-mode</code> with Projectile), you&#8217;ll probably don&#8217;t want to
+select a particular completion system manually.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="basic-emacss-default"><a class="anchor" href="#basic-emacss-default"></a>Basic (Emacs&#8217;s default)</h3>
 <div class="paragraph">
-<p>If you don&#8217;t like <code>ido</code> and <code>ivy</code> you can use regular completion (based on <code>completing-read</code>):</p>
+<p>Select this option if you want to use Emacs&#8217;s standard completion (based on <code>completing-read</code>):</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -740,7 +762,7 @@ Emacs 27 added <code>fido-mode</code> to <code>icomplete</code>.
 </div>
 <div class="paragraph">
 <p>If you are using <code>fido-mode</code>, Projectile will
-use the <code>default</code> completion system. The same holds for <code>selectrum</code> which also relies
+use the <code>default</code> completion system. The same holds for <code>selectrum</code> and <code>vertico</code> which also rely
 on the <code>default</code> completion system.</p>
 </div>
 </div>
@@ -841,14 +863,11 @@ appears.</p>
 <div class="paragraph">
 <p>Normally, the buffers created by those commands would be shared (overwritten)
 between projects, but it&#8217;s also possible to make the compilation buffer names
-project-specific. Currently, this requires that the user explicitly set:</p>
+project-specific. This requires that the user set:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(setq compilation-buffer-name-function
-      #'projectile-compilation-buffer-name)
-(setq compilation-save-buffers-predicate
-      #'projectile-current-project-buffer-p)</code></pre>
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(setq projectile-per-project-compilation-buffer t)</code></pre>
 </div>
 </div>
 <div class="paragraph">
