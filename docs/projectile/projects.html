@@ -627,7 +627,7 @@ directory of the corresponding implementation file.</p>
 functions for consistent behaviour.</p>
 </div>
 <div class="paragraph">
-<p>Alternatively, for flexible file switching accross a range of projects,
+<p>Alternatively, for flexible file switching across a range of projects,
 the <code>:related-files-fn</code> option set to a custom function or a
 list of custom functions can be used. The custom function accepts the relative
 file name from the project root and it should return related file information
@@ -858,35 +858,56 @@ and apply them differently to projects.</p>
 <div class="sect2">
 <h3 id="test-dirsrc-dir-vs-related-files-fn"><a class="anchor" href="#test-dirsrc-dir-vs-related-files-fn"></a><code>:test-dir</code>/<code>:src-dir</code> vs <code>:related-files-fn</code></h3>
 <div class="paragraph">
-<p>Setting the <code>:test-dir</code> and <code>:src-dir</code> options to functions is useful if the
-test location for a given implementation file is almost always going to be in
-the same place accross all projects belonging to a given project type, <code>maven</code>
-projects are an example of this:</p>
+<p>Whilst setting the <code>:test-dir</code> and <code>:src-dir</code> to strings is sufficient for most
+purposes, using functions can give more flexibility.  As an example consider
+(also using <code>f.el</code>):</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(projectile-update-project-type
- 'maven
- :src-dir
- (lambda (file-path) (projectile-complementary-dir file-path "test" "main"))
- :test-dir
- (lambda (file-path) (projectile-complementary-dir file-path "main" "test")))</code></pre>
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(defun my-get-python-test-file (impl-file-path)
+  "Return the corresponding test file directory for IMPL-FILE-PATH"
+  (let* ((rel-path (f-relative impl-file-path (projectile-project-root)))
+         (src-dir (car (f-split rel-path))))
+    (cond ((f-exists-p (f-join (projectile-project-root) "test"))
+           (projectile-complementary-dir impl-file-path src-dir "test"))
+          ((f-exists-p (f-join (projectile-project-root) "tests"))
+           (projectile-complementary-dir impl-file-path src-dir "tests"))
+          (t (error "Could not locate a test file for %s!" impl-file-path)))))
+
+(defun my-get-python-impl-file (test-file-path)
+  "Return the corresponding impl file directory for TEST-FILE-PATH"
+  (if-let* ((root (projectile-project-root))
+            (rel-path (f-relative test-file-path root))
+            (src-dir-guesses `(,(f-base root) ,(downcase (f-base root)) "src"))
+            (src-dir (cl-find-if (lambda (d) (f-exists-p (f-join root d)))
+                                 src-dir-guesses)))
+      (projectile-complementary-dir test-file-path "tests?" src-dir)
+    (error "Could not locate a impl file for %s!" test-file-path)))
+
+(projectile-update-project-type
+ 'python-pkg
+ :src-dir #'my-get-python-impl-dir
+ :test-dir #'my-get-python-test-dir)</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>If instead you work on a lot of elisp projects using <code>eldev</code>, the
-<code>:related-files-fn</code> option may be more appropriate since the test locations tend
-to vary accross projects:</p>
+<p>This attempts to recognise projects using both <code>test</code> and <code>tests</code> as top level
+directories for test files. An alternative using the <code>related-files-fn</code> option
+could be:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(projectile-update-project-type
- 'emacs-eldev
+ 'python-pkg
  :related-files-fn
  (list
-  (projectile-related-files-fn-test-with-suffix "el" "-test")
-  (projectile-related-files-fn-test-with-prefix "el" "test-")))</code></pre>
+  (projectile-related-files-fn-test-with-suffix "py" "_test")
+  (projectile-related-files-fn-test-with-prefix "py" "test_")))</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>In fact this is a lot more flexible in terms of finding test files in different
+locations, but will not create test files for you.</p>
 </div>
 </div>
 </div>
@@ -1238,12 +1259,13 @@ external command or an Emacs Lisp function:</p>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
 <script type="text/javascript">
-docsearch({
-  apiKey: 'c86e95fc4990d60790342080d6122bd8',
-  indexName: 'projectile',
-  inputSelector: '#search-input',
-  debug: false // Set debug to true if you want to inspect the dropdown
-});
+ docsearch({
+   appId: 'AWRARFG5KK',
+   apiKey: 'a63b4e71df80397bc12c36b6e9d0b836',
+   indexName: 'projectile',
+   inputSelector: '#search-input',
+   debug: false // Set debug to true if you want to inspect the dropdown
+ });
 </script>
 <script src="../_/js/site.js"></script>
 <script async src="../_/js/vendor/highlight.js"></script>
