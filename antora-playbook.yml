@@ -1,7 +1,7 @@
 site:
   title: Projectile
   url: https://docs.projectile.mx/
-  start_page: master@projectile::index.adoc
+  start_page: projectile::index.adoc
   # keys:
   #   google_analytics: 'UA-128069102-1'
 content:
