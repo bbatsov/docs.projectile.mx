@@ -7,7 +7,7 @@
     <link rel="canonical" href="https://docs.projectile.mx/projectile/projects.html">
     <link rel="prev" href="usage.html">
     <link rel="next" href="configuration.html">
-    <meta name="generator" content="Antora 3.0.0">
+    <meta name="generator" content="Antora 3.0.1">
     <link rel="stylesheet" href="../_/css/site.css">
 <link rel="stylesheet" href="../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha">
@@ -54,7 +54,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="projectile" data-version="master">
+<div class="nav-container" data-component="projectile" data-version="">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -101,14 +101,17 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Projectile</span>
-    <span class="version">master</span>
+    <span class="version">default</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <a class="title" href="index.html">Projectile</a>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="index.html">master</a>
+          <a href="index.html">default</a>
+        </li>
+        <li class="version">
+          <a href="2.6/index.html">2.6</a>
         </li>
         <li class="version">
           <a href="2.4/index.html">2.4</a>
@@ -129,7 +132,6 @@
 <main class="article">
 <div class="toolbar" role="navigation">
 <button class="nav-toggle"></button>
-  <a href="index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">Projectile</a></li>
@@ -137,9 +139,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">master</button>
+  <button class="version-menu-toggle" title="Show other versions of page">default</button>
   <div class="version-menu">
-    <a class="version is-current" href="projects.html">master</a>
+    <a class="version is-current" href="projects.html">default</a>
+    <a class="version" href="2.6/projects.html">2.6</a>
     <a class="version" href="2.4/projects.html">2.4</a>
     <a class="version" href="2.3/projects.html">2.3</a>
     <a class="version" href="2.2/projects.html">2.2</a>
@@ -449,7 +452,7 @@ initialization code</p>
 ;; Ruby + Minitest
 (projectile-register-project-type 'ruby-test '("Gemfile" "lib" "test")
                                   :project-file "Gemfile"
-                                  :compile"bundle exec rake"
+                                  :compile "bundle exec rake"
                                   :src-dir "lib/"
                                   :test "bundle exec rake test"
                                   :test-suffix "_test")
@@ -476,7 +479,7 @@ initialization code</p>
 <p>All those projects are using <code>Gemfile</code> (<code>bundler</code>'s project file), but they have different directory structures.</p>
 </div>
 <div class="paragraph">
-<p>Bellow is a listing of all the available options for <code>projectile-register-project-type</code>:</p>
+<p>Below is a listing of all the available options for <code>projectile-register-project-type</code>:</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -848,11 +851,13 @@ and apply them differently to projects.</p>
  :related-files-fn
  (list
   (projectile-related-files-fn-test-with-suffix "scala" "Spec")
-  (projectile-related-files-fn-test-with-suffix "scala" "Test")))</code></pre>
+  (projectile-related-files-fn-test-with-suffix "scala" "Test"))
+ :test-prefix nil
+ :precedence 'high)</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This will keep all existing options for the <code>sbt</code> project type, but change the value of the <code>related-files-fn</code> option.</p>
+<p>This will change the value of the <code>related-files-fn</code> option, remove the <code>test-prefix</code> option and <code>:precedence 'high</code> sets the sbt project type to be chosen in preference to other potentially clashing project types (a value <code>'low</code> would do the opposite).</p>
 </div>
 </div>
 <div class="sect2">
@@ -1205,7 +1210,7 @@ you e.g. test a command-line program with <code>projectile-run-project</code>.</
 </div>
 </div>
 <div class="sect1">
-<h2 id="configure-a-projects-lifecycle-commands"><a class="anchor" href="#configure-a-projects-lifecycle-commands"></a>Configure a Project&#8217;s Lifecycle Commands</h2>
+<h2 id="configure-a-projects-lifecycle-commands-and-other-attributes"><a class="anchor" href="#configure-a-projects-lifecycle-commands-and-other-attributes"></a>Configure a Project&#8217;s Lifecycle Commands and Other Attributes</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>There are a few variables that are intended to be customized via <code>.dir-locals.el</code>.</p>
@@ -1230,6 +1235,21 @@ you e.g. test a command-line program with <code>projectile-run-project</code>.</
 <li>
 <p>for running - <code>projectile-project-run-cmd</code></p>
 </li>
+<li>
+<p>for configuring the test prefix - <code>projectile-project-test-prefix</code></p>
+</li>
+<li>
+<p>for configuring the test suffix - <code>projectile-project-test-suffix</code></p>
+</li>
+<li>
+<p>for configuring the related-files-fn property - <code>projectile-project-related-files-fn</code></p>
+</li>
+<li>
+<p>for configuring the src-dir property - <code>projectile-project-src-dir</code></p>
+</li>
+<li>
+<p>for configuring the test-dir property - <code>projectile-project-test-dir</code></p>
+</li>
 </ul>
 </div>
 <div class="paragraph">
@@ -1242,6 +1262,11 @@ external command or an Emacs Lisp function:</p>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(setq projectile-test-cmd #'custom-test-function)</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>In addition caching of commands can be disabled by setting the variable
+<code>projectile-project-enable-cmd-caching</code> is to <code>nil</code>. This is useful for
+preset-based CMake projects.</p>
 </div>
 </div>
 </div>
@@ -1267,7 +1292,7 @@ external command or an Emacs Lisp function:</p>
    debug: false // Set debug to true if you want to inspect the dropdown
  });
 </script>
-<script src="../_/js/site.js"></script>
+<script id="site-script" src="../_/js/site.js" data-ui-root-path="../_"></script>
 <script async src="../_/js/vendor/highlight.js"></script>
   </body>
 </html>

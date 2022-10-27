@@ -7,7 +7,7 @@
     <link rel="canonical" href="https://docs.projectile.mx/projectile/configuration.html">
     <link rel="prev" href="projects.html">
     <link rel="next" href="extensions.html">
-    <meta name="generator" content="Antora 3.0.0">
+    <meta name="generator" content="Antora 3.0.1">
     <link rel="stylesheet" href="../_/css/site.css">
 <link rel="stylesheet" href="../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha">
@@ -54,7 +54,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="projectile" data-version="master">
+<div class="nav-container" data-component="projectile" data-version="">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -101,14 +101,17 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Projectile</span>
-    <span class="version">master</span>
+    <span class="version">default</span>
   </div>
   <ul class="components">
     <li class="component is-current">
       <a class="title" href="index.html">Projectile</a>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="index.html">master</a>
+          <a href="index.html">default</a>
+        </li>
+        <li class="version">
+          <a href="2.6/index.html">2.6</a>
         </li>
         <li class="version">
           <a href="2.4/index.html">2.4</a>
@@ -129,7 +132,6 @@
 <main class="article">
 <div class="toolbar" role="navigation">
 <button class="nav-toggle"></button>
-  <a href="index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">Projectile</a></li>
@@ -137,9 +139,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">master</button>
+  <button class="version-menu-toggle" title="Show other versions of page">default</button>
   <div class="version-menu">
-    <a class="version is-current" href="configuration.html">master</a>
+    <a class="version is-current" href="configuration.html">default</a>
+    <a class="version" href="2.6/configuration.html">2.6</a>
     <a class="version" href="2.4/configuration.html">2.4</a>
     <a class="version" href="2.3/configuration.html">2.3</a>
     <a class="version" href="2.2/configuration.html">2.2</a>
@@ -176,14 +179,12 @@ known as the <code>native indexing method</code>) and the other two (<code>hybri
 obtain the list of files in a project.</p>
 </div>
 <div class="paragraph">
-<p>The <code>alien</code> indexing method optimizes to the limit the speed of
-the <code>hybrid</code> indexing method.  This means that Projectile will not do
-any processing or sorting of the files returned by the external commands
-and you&#8217;re going to get the maximum performance possible.  This behaviour
-makes a lot of sense for most people, as they&#8217;d typically be putting
-ignores in their VCS config (e.g. <code>.gitignore</code>) and won&#8217;t care about
-any additional ignores/unignores/sorting that Projectile might also
-provide.</p>
+<p>The <code>alien</code> indexing method maximizes the speed of the <code>hybrid</code> indexing
+method.  This means that Projectile will not do any processing or sorting
+of the files returned by the external commands and you&#8217;re going to get
+the maximum performance possible.  This behaviour makes a lot of sense for
+most people, as they&#8217;d typically be putting ignores in their VCS config (e.g. <code>.gitignore</code>) and won&#8217;t care about any additional ignores/unignores/sorting
+that Projectile might also provide.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -607,7 +608,7 @@ to invoke a different action on project switch.
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>r</kbd></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Replace a string in the project.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Replace a string in the project (running with <kbd>C-u</kbd> will allow users to select file name patterns and extensions).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s</kbd></p></td>
@@ -994,7 +995,7 @@ Preset support requires a CMake version that supports preset and for <code>json-
    debug: false // Set debug to true if you want to inspect the dropdown
  });
 </script>
-<script src="../_/js/site.js"></script>
+<script id="site-script" src="../_/js/site.js" data-ui-root-path="../_"></script>
 <script async src="../_/js/vendor/highlight.js"></script>
   </body>
 </html>
