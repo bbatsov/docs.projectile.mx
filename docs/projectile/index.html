@@ -249,7 +249,7 @@ You can learn more about Projectile&#8217;s notion of a project <a href="project
 <p>switch between projects you have worked on</p>
 </li>
 <li>
-<p>kill all project buffers</p>
+<p>kill (close) all project buffers</p>
 </li>
 <li>
 <p>replace in project</p>
@@ -258,16 +258,19 @@ You can learn more about Projectile&#8217;s notion of a project <a href="project
 <p>multi-occur in project buffers</p>
 </li>
 <li>
-<p>grep in project</p>
+<p>grep (search) in project (this supports multiple back-ends like <code>ag</code>, <code>rg</code>, etc)</p>
+</li>
+<li>
+<p>find references in project (using <code>xref</code> internally)</p>
 </li>
 <li>
 <p>regenerate project etags or gtags (requires <a href="https://github.com/leoliu/ggtags">ggtags</a>).</p>
 </li>
 <li>
-<p>visit project in dired</p>
+<p>visit project in <code>dired</code></p>
 </li>
 <li>
-<p>run make in a project with a single key chord</p>
+<p>run <code>make</code> in a project with a single key chord</p>
 </li>
 <li>
 <p>browse dirty version controlled projects</p>
@@ -275,7 +278,13 @@ You can learn more about Projectile&#8217;s notion of a project <a href="project
 <li>
 <p>support for multiple minibuffer completion/selection libraries (<code>ido</code>, <code>ivy</code>, <code>helm</code> and the default completion system)</p>
 </li>
+<li>
+<p>integration with the built-in <code>project.el</code> library</p>
+</li>
 </ul>
+</div>
+<div class="paragraph">
+<p>There&#8217;s also a rich ecosystem of third-party <a href="#extensions">Projectile extensions</a> that add even more features.</p>
 </div>
 </div>
 </div>
