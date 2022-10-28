@@ -320,6 +320,9 @@ The extent of the support for every VCS differs and Git is the best supported
 <p>Replace in project (<kbd>s-p r</kbd>)</p>
 </li>
 <li>
+<p>Find references in project (<kbd>s-p ?</kbd> or <kbd>s-p s x</kbd>)</p>
+</li>
+<li>
 <p>Invoke any Projectile command via the Projectile Commander (<kbd>s-p m</kbd>)</p>
 </li>
 <li>
@@ -445,6 +448,10 @@ Projectile doesn&#8217;t have a default key prefix for its commands, but all the
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p s r</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Runs <code>rg</code> (<code>ripgrep</code>) on the project, performing a literal search. Requires the presence of <code>rg.el</code> or <code>ripgrep.el</code>. With a prefix argument it will perform a regex search.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p s x</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find references to the symbol at point within the project. Uses internally the <code>xref</code> library.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p v</kbd></p></td>
@@ -799,12 +806,6 @@ need to press after invoking the commander (e.g. via <kbd>s-p m</kbd>).</p>
 project lookup function (<code>projectile-project-root</code>) and project file
 lookup function (<code>projectile-project-files</code>).</p>
 </div>
-<div class="paragraph">
-<p>That&#8217;s useful as some packages (e.g. <code>eglot</code>) support natively only
-<code>project.el&#8217;s API for project discovery. Fortunately, `project.el</code>
-makes it easy to install additional project lookup functions and that&#8217;s
-exactly what Projectile does.</p>
-</div>
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -813,6 +814,30 @@ exactly what Projectile does.</p>
 </td>
 <td class="content">
 You can read more about the integration <a href="https://github.com/bbatsov/projectile/issues/1591">here</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>That&#8217;s useful as some packages (e.g. <code>eglot</code>) support natively only
+<code>project.el&#8217;s API for project discovery. Fortunately, `project.el</code>
+makes it easy to install additional project lookup functions and that&#8217;s
+exactly what Projectile does.</p>
+</div>
+<div class="paragraph">
+<p>The popular <code>xref</code> package also relies on <code>project.el</code> to infers the project
+for use commands like <code>xref-find-references</code> (<kbd>M-?</kbd>), so it&#8217;s useful to teach it
+about Projectile&#8217;s project discovery logic.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Projectile provides its own alternative to <code>xref-find-references</code> that&#8217;s named
+<code>projectile-find-references</code> (<kbd>s-p ?</kbd> or <kbd>s-p s-x</kbd>) and is using <code>xref</code> internally.
 </td>
 </tr>
 </table>

@@ -1211,6 +1211,48 @@ you e.g. test a command-line program with <code>projectile-run-project</code>.</
 </div>
 </div>
 <div class="sect1">
+<h2 id="project-buffers"><a class="anchor" href="#project-buffers"></a>Project Buffers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Projectile offers a bunch of operations that are operating on the open buffers
+for some project (e.g. <code>projectile-kill-buffers</code>). One tricky part here are
+"special buffers" - basically buffers that are not backed by files
+(e.g. <code>*dired*</code>, <code>+<strong>scratch+</strong></code> and so on). Projectile determines whether a
+special buffer belongs to a project simply by checking the <code>default-directory</code>
+for the special buffer, which admittedly might result in some weird results
+(e.g. if you&#8217;ve created a special buffer that&#8217;s not related to a project, while
+visiting a file belonging to the project).</p>
+</div>
+<div class="paragraph">
+<p>That&#8217;s why Projectile has a couple of configuration options for dealing with
+project buffers - namely <code>projectile-globally-ignored-buffers</code> and
+<code>projectile-globally-ignored-modes</code>. Both of them take a list of strings or
+regular expressions that will be used to match against a buffer&#8217;s name or a
+buffer&#8217;s major mode.</p>
+</div>
+<div class="paragraph">
+<p>Here are a couple of examples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">;; ignoring specific buffers by name
+(setq projectile-globally-ignored-buffers
+  '("*scratch*"
+    "*lsp-log*"))
+
+;; ignoring buffers by their major mode
+(setq projectile-globally-ignored-modes
+  '("erc-mode"
+    "help-mode"
+    "completion-list-mode"
+    "Buffer-menu-mode"
+    "gnus-.*-mode"
+    "occur-mode"))</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="configure-a-projects-lifecycle-commands-and-other-attributes"><a class="anchor" href="#configure-a-projects-lifecycle-commands-and-other-attributes"></a>Configure a Project&#8217;s Lifecycle Commands and Other Attributes</h2>
 <div class="sectionbody">
 <div class="paragraph">
