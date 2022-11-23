@@ -54,7 +54,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="projectile" data-version="2.3">
+<div class="nav-container" data-component="projectile" data-version="2.7">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -101,7 +101,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Projectile</span>
-    <span class="version">2.3</span>
+    <span class="version">2.7</span>
   </div>
   <ul class="components">
     <li class="component is-current">
@@ -110,8 +110,8 @@
         <li class="version is-latest">
           <a href="../index.html">default</a>
         </li>
-        <li class="version">
-          <a href="../2.7/index.html">2.7</a>
+        <li class="version is-current">
+          <a href="index.html">2.7</a>
         </li>
         <li class="version">
           <a href="../2.6/index.html">2.6</a>
@@ -119,8 +119,8 @@
         <li class="version">
           <a href="../2.4/index.html">2.4</a>
         </li>
-        <li class="version is-current">
-          <a href="index.html">2.3</a>
+        <li class="version">
+          <a href="../2.3/index.html">2.3</a>
         </li>
         <li class="version">
           <a href="../2.2/index.html">2.2</a>
@@ -143,17 +143,17 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">2.3</button>
+  <button class="version-menu-toggle" title="Show other versions of page">2.7</button>
   <div class="version-menu">
     <a class="version" href="../projects.html">default</a>
-    <a class="version" href="../2.7/projects.html">2.7</a>
+    <a class="version is-current" href="projects.html">2.7</a>
     <a class="version" href="../2.6/projects.html">2.6</a>
     <a class="version" href="../2.4/projects.html">2.4</a>
-    <a class="version is-current" href="projects.html">2.3</a>
+    <a class="version" href="../2.3/projects.html">2.3</a>
     <a class="version" href="../2.2/projects.html">2.2</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/bbatsov/projectile/blob/v2.3.0-antora/doc/modules/ROOT/pages/projects.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/bbatsov/projectile/blob/v2.7.0/doc/modules/ROOT/pages/projects.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
@@ -168,6 +168,40 @@
 <p>One of the main goals of Projectile is to operate on a wide range of project types
 without the need for any configuration. To achieve this it contains a lot of
 project detection logic and project type specific logic.</p>
+</div>
+<div class="paragraph">
+<p>Broadly speaking, Projectile identifies projects like this:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Directories that contain the special <code>.projectile</code> file</p>
+</li>
+<li>
+<p>Directories under version control (e.g. a Git repo)</p>
+</li>
+<li>
+<p>Directories that contain some project description file (e.g. a <code>Gemfile</code> for Ruby projects or <code>pom.xml</code> for Java maven-based projects)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>While Projectile aims to recognize most project types out-of-the-box, it&#8217;s also extremely
+flexible configuration-wise, and you can easily alter the project detection logic.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you&#8217;d like to override the default project detection functions you should
+check out <code>projectile-project-root-functions</code>. We&#8217;ll discuss how to tweak in more
+details later in the documentation.
+</td>
+</tr>
+</table>
 </div>
 <div class="sect2">
 <h3 id="version-control-systems"><a class="anchor" href="#version-control-systems"></a>Version Control Systems</h3>
@@ -238,6 +272,14 @@ are the configuration files of various build tools. Out of the box the following
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SConstruct</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Scons project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">default.nix</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nix project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">flake.nix</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nix flake project file</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">pom.xml</p></td>
@@ -332,8 +374,16 @@ are the configuration files of various build tools. Out of the box the following
 <td class="tableblock halign-left valign-top"><p class="tableblock">Make</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CMakeLists.txt</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CMake</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">WORKSPACE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Bazel workspace file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">debian/control</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Debian package dpkg control file</p></td>
 </tr>
 </tbody>
 </table>
@@ -371,10 +421,10 @@ initialization code</p>
 <p>add your own type of project, in this case <code>npm</code> package.</p>
 </li>
 <li>
-<p>add a list of files and/or folders in a root of the project that helps to identify the type, in this case it is only <code>package.json</code>.</p>
+<p>add a list of files and/or folders in a root of the project that helps to identify the type, in this case it is only <code>package.json</code>. This can also be a function which takes a project root as argument and verifies whether that directory has the correct project structure for the type.</p>
 </li>
 <li>
-<p>add <em>project-file</em>, which is typically the primary project configuration file. In this case that&#8217;s <code>package.json</code>.</p>
+<p>add <em>project-file</em>, which is typically the primary project configuration file. In this case that&#8217;s <code>package.json</code>. The value can contain wildcards and/or be a list containing multiple project files to look for.</p>
 </li>
 <li>
 <p>add <em>compile-command</em>, in this case it is <code>npm install</code>.</p>
@@ -395,6 +445,20 @@ initialization code</p>
 </div>
 <div class="listingblock">
 <div class="content">
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">;; .NET C# or F# projects
+(projectile-register-project-type 'dotnet #'projectile-dotnet-project-p
+                                  :project-file '("?*.csproj" "?*.fsproj")
+                                  :compile "dotnet build"
+                                  :run "dotnet run"
+                                  :test "dotnet test")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This example uses <em>projectile-dotnet-project-p</em> to validate the project&#8217;s structure.
+Since C# and F# project files have names containing the name of the project, it uses a list of wildcards to specify the different valid <em>project-file</em> name patterns.</p>
+</div>
+<div class="listingblock">
+<div class="content">
 <pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">;; Ruby + RSpec
 (projectile-register-project-type 'ruby-rspec '("Gemfile" "lib" "spec")
                                   :project-file "Gemfile"
@@ -407,7 +471,7 @@ initialization code</p>
 ;; Ruby + Minitest
 (projectile-register-project-type 'ruby-test '("Gemfile" "lib" "test")
                                   :project-file "Gemfile"
-                                  :compile"bundle exec rake"
+                                  :compile "bundle exec rake"
                                   :src-dir "lib/"
                                   :test "bundle exec rake test"
                                   :test-suffix "_test")
@@ -431,10 +495,10 @@ initialization code</p>
 </div>
 </div>
 <div class="paragraph">
-<p>All those projects are using <code>Gemfile</code> (`bundler&#8217;s project file), but they have different directory structures.</p>
+<p>All those projects are using <code>Gemfile</code> (<code>bundler</code>'s project file), but they have different directory structures.</p>
 </div>
 <div class="paragraph">
-<p>Bellow is a listing of all the available options for <code>projectile-register-project-type</code>:</p>
+<p>Below is a listing of all the available options for <code>projectile-register-project-type</code>:</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -478,7 +542,7 @@ initialization code</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">:src-dir</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A path, relative to the project root, where the source code lives.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A path, relative to the project root, where the source code lives.  A function may also be specified which takes one parameter - the directory of a test file, and it should return the directory in which the implementation file should reside.  This option is only used for implementation/test toggling.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">:test</p></td>
@@ -486,7 +550,7 @@ initialization code</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">:test-dir</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A path, relative to the project root, where the test code lives.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A path, relative to the project root, where the test code lives.  A function may also be specified which takes one parameter - the directory of a file, and it should return the directory in which the test file should reside.  This option is only used for implementation/test toggling.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">:test-prefix</p></td>
@@ -561,16 +625,35 @@ to <code>./gradlew compile-templates</code>.</p>
 <div class="sect2">
 <h3 id="related-file-location"><a class="anchor" href="#related-file-location"></a>Related file location</h3>
 <div class="paragraph">
-<p>For simple projects, <code>:test-prefix</code> and <code>:test-suffix</code> option with string will
-be enough to specify test prefix/suffix applicable regardless of file extensions
-on any directory path. <code>projectile-other-file-alist</code> variable can be also set to
-find other files based on the extension.</p>
+<p>The <code>:test-prefix</code> and <code>:test-suffix</code> will work regardless of file extension
+or directory path should and be enough for simple projects.  The
+<code>projectile-other-file-alist</code> variable can also be set to find other files
+based on the extension.</p>
 </div>
 <div class="paragraph">
-<p>For the full control of finding related files, <code>:related-files-fn</code> option with a
-custom function or a list of custom functions can be used. The custom function
-accepts the relative file name from the project root and it should return the
-related file information as plist with the following optional key/value pairs:</p>
+<p>For fine-grained control of implementation/test toggling, the <code>:test-dir</code> option
+of a project may take a function of one parameter (the implementation
+directory absolute path) and return the directory of the test file. This in
+conjunction with the options <code>:test-prefix</code> and <code>:test-suffix</code> will then be
+used to determine the full path of the test file. This option will always be
+respected if it is set.</p>
+</div>
+<div class="paragraph">
+<p>Similarly, the <code>:src-dir</code> option, the analogue of <code>:test-dir</code>, may also take a
+function and exhibits exactly the same behaviour as above except that its
+parameter corresponds to the directory of a test file and it should return the
+directory of the corresponding implementation file.</p>
+</div>
+<div class="paragraph">
+<p>It&#8217;s recommended that either both or neither of these options are set to
+functions for consistent behaviour.</p>
+</div>
+<div class="paragraph">
+<p>Alternatively, for flexible file switching across a range of projects,
+the <code>:related-files-fn</code> option set to a custom function or a
+list of custom functions can be used. The custom function accepts the relative
+file name from the project root and it should return related file information
+as a plist with the following optional key/value pairs:</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -650,6 +733,10 @@ of a function can be fast as it does not iterate over each source file.</p>
 <p>There is a difference in behaviour between no key and <code>nil</code> value for the
 key. Only when the key does not exist, other project options such as
 <code>:test_prefix</code> or <code>projectile-other-file-alist</code> mechanism is tried.</p>
+</li>
+<li>
+<p>If the <code>:test-dir</code> option is set to a function, this will take precedence over
+any value for <code>:related-files-fn</code> set when <code>projectile-toggle-between-implementation-and-test</code> is called.</p>
 </li>
 </ol>
 </div>
@@ -737,11 +824,11 @@ and apply them differently to projects.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Relates files with extensions as the specified kind.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">tests-with-prefix EXTENSION PREFIX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">test-with-prefix EXTENSION PREFIX</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Relates files with prefix and extension as :test and :impl.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">tests-with-suffix EXTENSION SUFFIX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">test-with-suffix EXTENSION SUFFIX</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Relates files with suffix and extension as :test and :impl.</p></td>
 </tr>
 </tbody>
@@ -766,29 +853,170 @@ and apply them differently to projects.</p>
 
 (projectile-register-project-type
    ;; ...
-   :related-files-fn #'my/related-files)</code></pre>
+   :related-files-fn my/related-files)</code></pre>
 </div>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-existing-project-types"><a class="anchor" href="#editing-existing-project-types"></a>Editing Existing Project Types</h3>
+<div class="paragraph">
+<p>You can also edit specific options of already existing project types:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(projectile-update-project-type
+ 'sbt
+ :related-files-fn
+ (list
+  (projectile-related-files-fn-test-with-suffix "scala" "Spec")
+  (projectile-related-files-fn-test-with-suffix "scala" "Test"))
+ :test-prefix nil
+ :precedence 'high)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will change the value of the <code>related-files-fn</code> option, remove the <code>test-prefix</code> option and <code>:precedence 'high</code> sets the sbt project type to be chosen in preference to other potentially clashing project types (a value <code>'low</code> would do the opposite).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="test-dirsrc-dir-vs-related-files-fn"><a class="anchor" href="#test-dirsrc-dir-vs-related-files-fn"></a><code>:test-dir</code>/<code>:src-dir</code> vs <code>:related-files-fn</code></h3>
+<div class="paragraph">
+<p>Whilst setting the <code>:test-dir</code> and <code>:src-dir</code> to strings is sufficient for most
+purposes, using functions can give more flexibility.  As an example consider
+(also using <code>f.el</code>):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(defun my-get-python-test-file (impl-file-path)
+  "Return the corresponding test file directory for IMPL-FILE-PATH"
+  (let* ((rel-path (f-relative impl-file-path (projectile-project-root)))
+         (src-dir (car (f-split rel-path))))
+    (cond ((f-exists-p (f-join (projectile-project-root) "test"))
+           (projectile-complementary-dir impl-file-path src-dir "test"))
+          ((f-exists-p (f-join (projectile-project-root) "tests"))
+           (projectile-complementary-dir impl-file-path src-dir "tests"))
+          (t (error "Could not locate a test file for %s!" impl-file-path)))))
+
+(defun my-get-python-impl-file (test-file-path)
+  "Return the corresponding impl file directory for TEST-FILE-PATH"
+  (if-let* ((root (projectile-project-root))
+            (rel-path (f-relative test-file-path root))
+            (src-dir-guesses `(,(f-base root) ,(downcase (f-base root)) "src"))
+            (src-dir (cl-find-if (lambda (d) (f-exists-p (f-join root d)))
+                                 src-dir-guesses)))
+      (projectile-complementary-dir test-file-path "tests?" src-dir)
+    (error "Could not locate a impl file for %s!" test-file-path)))
+
+(projectile-update-project-type
+ 'python-pkg
+ :src-dir #'my-get-python-impl-dir
+ :test-dir #'my-get-python-test-dir)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This attempts to recognise projects using both <code>test</code> and <code>tests</code> as top level
+directories for test files. An alternative using the <code>related-files-fn</code> option
+could be:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(projectile-update-project-type
+ 'python-pkg
+ :related-files-fn
+ (list
+  (projectile-related-files-fn-test-with-suffix "py" "_test")
+  (projectile-related-files-fn-test-with-prefix "py" "test_")))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In fact this is a lot more flexible in terms of finding test files in different
+locations, but will not create test files for you.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="customizing-project-root-files"><a class="anchor" href="#customizing-project-root-files"></a>Customizing project root files</h2>
+<h2 id="customizing-project-detection"><a class="anchor" href="#customizing-project-detection"></a>Customizing Project Detection</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can set the values of <code>projectile-project-root-files</code>,
-<code>projectile-project-root-files-top-down-recurring</code>,
-<code>projectile-project-root-files-bottom-up</code> and
-<code>projectile-project-root-files-functions</code> to customize how project roots are
-identified.</p>
+<p>Project detection is pretty simple - Projectile just runs a list of
+project detection functions
+(<code>projectile-project-root-functions</code>) until one of them returns
+a project directory.</p>
 </div>
 <div class="paragraph">
-<p>To customize project root files settings:</p>
+<p>This list of functions is customizable, and while Projectile has some
+defaults for it, you can tweak it however you see fit.</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s take a closer look at <code>projectile-project-root-functions</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>M-x customize-group RET projectile RET</pre>
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(defcustom projectile-project-root-functions
+  '(projectile-root-local
+    projectile-root-marked
+    projectile-root-bottom-up
+    projectile-root-top-down
+    projectile-root-top-down-recurring)
+  "A list of functions for finding project roots."
+  :group 'projectile
+  :type '(repeat function))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The important thing to note here is that the functions get invoked in their
+order on the list, so the functions earlier in the list will have a higher
+precedence with respect to project detection. Let&#8217;s examine the defaults:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>projectile-root-local</code> looks for project path set via the buffer-local variable <code>projectile-project-root</code>. Typically you&#8217;d set this variable via <code>.dir-locals.el</code> and it will take precedence over everything else.</p>
+</li>
+<li>
+<p><code>projectile-root-marked</code> looks for <code>.projectile</code> (or whatever you&#8217;ve set as the value of <code>projectile-dirconfig-file</code>). The idea is that normally if you have a <code>.projectile</code> file you&#8217;d like it to override the normal project root discovery logic.</p>
+</li>
+<li>
+<p><code>projectile-root-bottom-up</code> will start looking for a project marker file/folder(e.g. <code>.projectile</code>, <code>.hg</code>, <code>.git</code>) from the current folder (a.k.a. <code>default-directory</code> in Emacs lingo) up the directory tree. It will return the first match it discovers. The assumption is pretty simple - the root marker appear only once, at the root folder of a project. If a root marker appear in several nested folders (e.g. you&#8217;ve got nested git projects), the bottom-most (closest to the current dir) match has precedence. You can customize the root markers recognized by this function via <code>projectile-project-root-files-bottom-up</code></p>
+</li>
+<li>
+<p><code>projectile-root-top-down</code> is similar, but it will return the top-most (farthest from the current directory) match. It&#8217;s configurable via <code>projectile-project-root-files</code> and all project manifest markers like <code>pom.xml</code>, <code>Gemfile</code>, <code>project.clj</code>, etc go there.</p>
+</li>
+<li>
+<p><code>projectile-root-top-down-recurring</code> will look for project markers that can appear at every level of a project (e.g. <code>Makefile</code> or <code>.svn</code>) and will return the top-most match for those.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The default ordering should work well for most people, but depending on the structure of your project you might want to tweak it.</p>
+</div>
+<div class="paragraph">
+<p>Re-ordering those functions will alter the project detection, but you can also replace the list. Here&#8217;s how you can delegate the project detection to Emacs&#8217;s built-in function <code>vc-root-dir</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">;; we need this wrapper to match Projectile's API
+(defun projectile-vc-root-dir (dir)
+  "Retrieve the root directory of the project at DIR using `vc-root-dir'."
+  (let ((default-directory dir))
+    (vc-root-dir)))
+
+(setq projectile-project-root-functions '(projectile-vc-root-dir))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Similarly, you can leverage the built-in <code>project.el</code> like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">;; we need this wrapper to match Projectile's API
+(defun projectile-project-current (dir)
+  "Retrieve the root directory of the project at DIR using `project-current'."
+  (cdr (project-current nil dir)))
+
+(setq projectile-project-root-functions '(projectile-project-current))</code></pre>
 </div>
 </div>
 </div>
@@ -928,9 +1156,19 @@ corresponding value.  In the example above, this is used to create a
 function.  It could also be used to e.g. add such a function to a key
 map.</p>
 </div>
-<div class="paragraph">
-<p>You can also quickly visit or create the <code>dir-locals-file</code> with
-<kbd>s-p E</kbd> (<kbd>M-x</kbd> <code>projectile-edit-dir-locals</code> <kbd>RET</kbd>).</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can also quickly visit or create the <code>dir-locals-file</code> with
+<kbd>s-p E</kbd> (<kbd>M-x</kbd> <code>projectile-edit-dir-locals</code> <kbd>RET</kbd>). 3rd party packages may use functions <code>projectile-add-dir-local-variable</code>
+and <code>projectile-delete-dir-local-variable</code> to store their settings.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Here are a few examples of how to use this feature with Projectile.</p>
@@ -980,10 +1218,65 @@ your project, you could customize it with the following:</p>
 <pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">((nil . ((projectile-project-name . "your-project-name-here"))))</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>By default, compilation buffers are not writable, which allows you to
+e.g.  press <code>g</code> to restart the last command. Setting
+<code>projectile-&lt;cmd&gt;-use-comint-mode</code> (where <code>&lt;cmd&gt;</code> is <code>configure</code>,
+<code>compile</code>, <code>test</code>, <code>install</code>, <code>package</code>, or <code>run</code>) to a non-nil value
+allows you to make projectile compilation buffers interactive, letting
+you e.g. test a command-line program with <code>projectile-run-project</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(setq projectile-comint-mode t)</code></pre>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="configure-a-projects-compilation-test-and-run-commands"><a class="anchor" href="#configure-a-projects-compilation-test-and-run-commands"></a>Configure a Project&#8217;s Compilation, Test and Run commands</h2>
+<h2 id="project-buffers"><a class="anchor" href="#project-buffers"></a>Project Buffers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Projectile offers a bunch of operations that are operating on the open buffers
+for some project (e.g. <code>projectile-kill-buffers</code>). One tricky part here are
+"special buffers" - basically buffers that are not backed by files
+(e.g. <code>*dired*</code>, <code>+<strong>scratch+</strong></code> and so on). Projectile determines whether a
+special buffer belongs to a project simply by checking the <code>default-directory</code>
+for the special buffer, which admittedly might result in some weird results
+(e.g. if you&#8217;ve created a special buffer that&#8217;s not related to a project, while
+visiting a file belonging to the project).</p>
+</div>
+<div class="paragraph">
+<p>That&#8217;s why Projectile has a couple of configuration options for dealing with
+project buffers - namely <code>projectile-globally-ignored-buffers</code> and
+<code>projectile-globally-ignored-modes</code>. Both of them take a list of strings or
+regular expressions that will be used to match against a buffer&#8217;s name or a
+buffer&#8217;s major mode.</p>
+</div>
+<div class="paragraph">
+<p>Here are a couple of examples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">;; ignoring specific buffers by name
+(setq projectile-globally-ignored-buffers
+  '("*scratch*"
+    "*lsp-log*"))
+
+;; ignoring buffers by their major mode
+(setq projectile-globally-ignored-modes
+  '("erc-mode"
+    "help-mode"
+    "completion-list-mode"
+    "Buffer-menu-mode"
+    "gnus-.*-mode"
+    "occur-mode"))</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="configure-a-projects-lifecycle-commands-and-other-attributes"><a class="anchor" href="#configure-a-projects-lifecycle-commands-and-other-attributes"></a>Configure a Project&#8217;s Lifecycle Commands and Other Attributes</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>There are a few variables that are intended to be customized via <code>.dir-locals.el</code>.</p>
@@ -991,13 +1284,37 @@ your project, you could customize it with the following:</p>
 <div class="ulist">
 <ul>
 <li>
+<p>for configuration - <code>projectile-project-configure-cmd</code></p>
+</li>
+<li>
 <p>for compilation - <code>projectile-project-compilation-cmd</code></p>
 </li>
 <li>
 <p>for testing - <code>projectile-project-test-cmd</code></p>
 </li>
 <li>
+<p>for installation - <code>projectile-project-install-cmd</code></p>
+</li>
+<li>
+<p>for packaging - <code>projectile-project-package-cmd</code></p>
+</li>
+<li>
 <p>for running - <code>projectile-project-run-cmd</code></p>
+</li>
+<li>
+<p>for configuring the test prefix - <code>projectile-project-test-prefix</code></p>
+</li>
+<li>
+<p>for configuring the test suffix - <code>projectile-project-test-suffix</code></p>
+</li>
+<li>
+<p>for configuring the related-files-fn property - <code>projectile-project-related-files-fn</code></p>
+</li>
+<li>
+<p>for configuring the src-dir property - <code>projectile-project-src-dir</code></p>
+</li>
+<li>
+<p>for configuring the test-dir property - <code>projectile-project-test-dir</code></p>
 </li>
 </ul>
 </div>
@@ -1011,6 +1328,11 @@ external command or an Emacs Lisp function:</p>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(setq projectile-test-cmd #'custom-test-function)</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>In addition caching of commands can be disabled by setting the variable
+<code>projectile-project-enable-cmd-caching</code> is to <code>nil</code>. This is useful for
+preset-based CMake projects.</p>
 </div>
 </div>
 </div>

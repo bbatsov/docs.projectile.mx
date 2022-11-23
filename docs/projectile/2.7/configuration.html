@@ -54,7 +54,7 @@
   </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="projectile" data-version="2.4">
+<div class="nav-container" data-component="projectile" data-version="2.7">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -101,7 +101,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Projectile</span>
-    <span class="version">2.4</span>
+    <span class="version">2.7</span>
   </div>
   <ul class="components">
     <li class="component is-current">
@@ -110,14 +110,14 @@
         <li class="version is-latest">
           <a href="../index.html">default</a>
         </li>
-        <li class="version">
-          <a href="../2.7/index.html">2.7</a>
+        <li class="version is-current">
+          <a href="index.html">2.7</a>
         </li>
         <li class="version">
           <a href="../2.6/index.html">2.6</a>
         </li>
-        <li class="version is-current">
-          <a href="index.html">2.4</a>
+        <li class="version">
+          <a href="../2.4/index.html">2.4</a>
         </li>
         <li class="version">
           <a href="../2.3/index.html">2.3</a>
@@ -143,17 +143,17 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">2.4</button>
+  <button class="version-menu-toggle" title="Show other versions of page">2.7</button>
   <div class="version-menu">
     <a class="version" href="../configuration.html">default</a>
-    <a class="version" href="../2.7/configuration.html">2.7</a>
+    <a class="version is-current" href="configuration.html">2.7</a>
     <a class="version" href="../2.6/configuration.html">2.6</a>
-    <a class="version is-current" href="configuration.html">2.4</a>
+    <a class="version" href="../2.4/configuration.html">2.4</a>
     <a class="version" href="../2.3/configuration.html">2.3</a>
     <a class="version" href="../2.2/configuration.html">2.2</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/bbatsov/projectile/blob/v2.4.0/doc/modules/ROOT/pages/configuration.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/bbatsov/projectile/blob/v2.7.0/doc/modules/ROOT/pages/configuration.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
@@ -184,14 +184,12 @@ known as the <code>native indexing method</code>) and the other two (<code>hybri
 obtain the list of files in a project.</p>
 </div>
 <div class="paragraph">
-<p>The <code>alien</code> indexing method optimizes to the limit the speed of
-the <code>hybrid</code> indexing method.  This means that Projectile will not do
-any processing or sorting of the files returned by the external commands
-and you&#8217;re going to get the maximum performance possible.  This behaviour
-makes a lot of sense for most people, as they&#8217;d typically be putting
-ignores in their VCS config (e.g. <code>.gitignore</code>) and won&#8217;t care about
-any additional ignores/unignores/sorting that Projectile might also
-provide.</p>
+<p>The <code>alien</code> indexing method maximizes the speed of the <code>hybrid</code> indexing
+method.  This means that Projectile will not do any processing or sorting
+of the files returned by the external commands and you&#8217;re going to get
+the maximum performance possible.  This behaviour makes a lot of sense for
+most people, as they&#8217;d typically be putting ignores in their VCS config (e.g. <code>.gitignore</code>) and won&#8217;t care about any additional ignores/unignores/sorting
+that Projectile might also provide.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -615,7 +613,7 @@ to invoke a different action on project switch.
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>r</kbd></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Replace a string in the project.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Replace a string in the project (running with <kbd>C-u</kbd> will allow users to select file name patterns and extensions).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s</kbd></p></td>
@@ -711,6 +709,26 @@ top-level directory.</p>
 <div class="sect1">
 <h2 id="completion-options"><a class="anchor" href="#completion-options"></a>Completion Options</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Projectile supports all major minibuffer completion packages that
+exist today. Normally it will just detect what you&#8217;re using (e.g. <code>ivy</code>),
+but you can force a particular completion system via the variable
+<code>projectile-completion-system</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Historically <code>projectile-completion-system</code> defaulted to <code>ido</code>,
+but this was changed in version 2.3. You may need to enable <code>ido-mode</code>
+in your Emacs configuration if updating from an older version of Projectile.
+</td>
+</tr>
+</table>
+</div>
 <div class="sect2">
 <h3 id="auto-default"><a class="anchor" href="#auto-default"></a>Auto (default)</h3>
 <div class="paragraph">
@@ -719,14 +737,16 @@ on the mode variables <code>ido-mode</code>, <code>ivy-mode</code> and <code>hel
 If none of those is activated, the <code>default</code> completion system is used.</p>
 </div>
 <div class="paragraph">
-<p>Unless for some reason you want to use a different completion system for Projetile than for the
-rest of Emacs, you&#8217;ll probably don&#8217;t want to select a particular completion system manually.</p>
+<p>Unless for some reason you want to use a different completion system for
+Projectile than for the rest of Emacs (e.g. you normally use <code>icomplete-mode</code>,
+but want to use <code>ido-mode</code> with Projectile), you&#8217;ll probably don&#8217;t want to
+select a particular completion system manually.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="basic-emacss-default"><a class="anchor" href="#basic-emacss-default"></a>Basic (Emacs&#8217;s default)</h3>
 <div class="paragraph">
-<p>If you don&#8217;t like <code>ido</code> and <code>ivy</code> you can use regular completion (based on <code>completing-read</code>):</p>
+<p>Select this option if you want to use Emacs&#8217;s standard completion (based on <code>completing-read</code>):</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -748,7 +768,7 @@ Emacs 27 added <code>fido-mode</code> to <code>icomplete</code>.
 </div>
 <div class="paragraph">
 <p>If you are using <code>fido-mode</code>, Projectile will
-use the <code>default</code> completion system. The same holds for <code>selectrum</code> which also relies
+use the <code>default</code> completion system. The same holds for <code>selectrum</code> and <code>vertico</code> which also rely
 on the <code>default</code> completion system.</p>
 </div>
 </div>
@@ -849,14 +869,11 @@ appears.</p>
 <div class="paragraph">
 <p>Normally, the buffers created by those commands would be shared (overwritten)
 between projects, but it&#8217;s also possible to make the compilation buffer names
-project-specific. Currently, this requires that the user explicitly set:</p>
+project-specific. This requires that the user set:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(setq compilation-buffer-name-function
-      #'projectile-compilation-buffer-name)
-(setq compilation-save-buffers-predicate
-      #'projectile-current-project-buffer-p)</code></pre>
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(setq projectile-per-project-compilation-buffer t)</code></pre>
 </div>
 </div>
 <div class="paragraph">

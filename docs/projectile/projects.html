@@ -111,6 +111,9 @@
           <a href="index.html">default</a>
         </li>
         <li class="version">
+          <a href="2.7/index.html">2.7</a>
+        </li>
+        <li class="version">
           <a href="2.6/index.html">2.6</a>
         </li>
         <li class="version">
@@ -143,6 +146,7 @@
   <button class="version-menu-toggle" title="Show other versions of page">default</button>
   <div class="version-menu">
     <a class="version is-current" href="projects.html">default</a>
+    <a class="version" href="2.7/projects.html">2.7</a>
     <a class="version" href="2.6/projects.html">2.6</a>
     <a class="version" href="2.4/projects.html">2.4</a>
     <a class="version" href="2.3/projects.html">2.3</a>
@@ -417,10 +421,10 @@ initialization code</p>
 <p>add your own type of project, in this case <code>npm</code> package.</p>
 </li>
 <li>
-<p>add a list of files and/or folders in a root of the project that helps to identify the type, in this case it is only <code>package.json</code>.</p>
+<p>add a list of files and/or folders in a root of the project that helps to identify the type, in this case it is only <code>package.json</code>. This can also be a function which takes a project root as argument and verifies whether that directory has the correct project structure for the type.</p>
 </li>
 <li>
-<p>add <em>project-file</em>, which is typically the primary project configuration file. In this case that&#8217;s <code>package.json</code>.</p>
+<p>add <em>project-file</em>, which is typically the primary project configuration file. In this case that&#8217;s <code>package.json</code>. The value can contain wildcards and/or be a list containing multiple project files to look for.</p>
 </li>
 <li>
 <p>add <em>compile-command</em>, in this case it is <code>npm install</code>.</p>
@@ -438,6 +442,20 @@ initialization code</p>
 </div>
 <div class="paragraph">
 <p>Let&#8217;s see a couple of more complex examples.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">;; .NET C# or F# projects
+(projectile-register-project-type 'dotnet #'projectile-dotnet-project-p
+                                  :project-file '("?*.csproj" "?*.fsproj")
+                                  :compile "dotnet build"
+                                  :run "dotnet run"
+                                  :test "dotnet test")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This example uses <em>projectile-dotnet-project-p</em> to validate the project&#8217;s structure.
+Since C# and F# project files have names containing the name of the project, it uses a list of wildcards to specify the different valid <em>project-file</em> name patterns.</p>
 </div>
 <div class="listingblock">
 <div class="content">
