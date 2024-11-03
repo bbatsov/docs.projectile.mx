@@ -256,6 +256,11 @@ As of early 2024. (Projectile 2.8 and <code>project.el</code> in Emacs 29)
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Project Cache</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Built-in Project Types</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">60+</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">n/a</p></td>
@@ -269,6 +274,21 @@ As of early 2024. (Projectile 2.8 and <code>project.el</code> in Emacs 29)
 <td class="tableblock halign-left valign-top"><p class="tableblock">Number of Commands</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">80+</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">30+</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Minor Mode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Global Keybindings</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Require user setup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Out-of-the-box (<code>C-x p</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integration with <code>xref</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Feature-set</p></td>
@@ -287,6 +307,36 @@ As of early 2024. (Projectile 2.8 and <code>project.el</code> in Emacs 29)
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="notable-differences"><a class="anchor" href="#notable-differences"></a>Notable Differences</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="minor-mode-vs-global-keymap"><a class="anchor" href="#minor-mode-vs-global-keymap"></a>Minor Mode vs Global Keymap</h3>
+<div class="paragraph">
+<p>Projectile makes heavy use of <code>projectile-mode</code>, which provides some additional features (e.g. project status in the modeline).
+You can use Projectile without it, but I guess few people do so. Most of Projectile&#8217;s functionality will work fine even if the mode is not active.</p>
+</div>
+<div class="paragraph">
+<p><code>project.el</code> on the other hand, just adds its own keymap under the global keymap (using the prefix <code>C-x p</code>). You can do the same for Projectile,
+of course, if you want to.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="project-indexing-strategies"><a class="anchor" href="#project-indexing-strategies"></a>Project Indexing Strategies</h3>
+<div class="paragraph">
+<p>Projectile has multiple project indexing strategies to cover a wide variety of use cases. <code>project.el</code> has only one, which is more or less the same
+as Projectile&#8217;s <code>alien</code> strategy. Admittedly, that&#8217;s probably the most commonly used strategy.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="projectile"><a class="anchor" href="#projectile"></a><code>.projectile</code></h3>
+<div class="paragraph">
+<p>Projectile has it&#8217;s own project marker/configuration file. It&#8217;s a remnant of the early days of the project where a wanted to build a tool that didn&#8217;t
+rely on the third-party applications and it&#8217;s significance today is not that big. (it will be completely ignored unless you&#8217;re using <code>native</code> or <code>hybrid</code> indexing)</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -314,10 +364,30 @@ As of early 2024. (Projectile 2.8 and <code>project.el</code> in Emacs 29)
 </div>
 </li>
 <li>
-<p>It&#8217;s easier to contribute to Projectile, as you don&#8217;t need to deal with Emacs&#8217;s contributor&#8217;s agreement and the <code>emacs-devel</code> mailing list</p>
+<p>It&#8217;s easier to contribute to Projectile</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Projectile is hosted in GitHub</p>
+</li>
+<li>
+<p>It accepts pull requests</p>
+</li>
+<li>
+<p>You don&#8217;t need to sign a contributor agreement</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Projectile has more extensive documentation</p>
+<div class="ulist">
+<ul>
+<li>
+<p>You can compare it with [project.el&#8217;s documentation](<a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Projects.html" class="bare">https://www.gnu.org/software/emacs/manual/html_node/emacs/Projects.html</a>) and decide for themselves</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -343,6 +413,13 @@ As of early 2024. (Projectile 2.8 and <code>project.el</code> in Emacs 29)
 </li>
 <li>
 <p>Due to its larger size, one can argue that Projectile is more complex than <code>project.el</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Admittedly I would have done some things differently if were starting Projectile today, but I don&#8217;t think Projetile&#8217;s core complexity is high.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -366,7 +443,7 @@ As of early 2024. (Projectile 2.8 and <code>project.el</code> in Emacs 29)
 </main>
 </div>
 <footer class="footer">
-  <p>Copyright (C) 2011-2022 <a href="https://batsov.com">Bozhidar Batsov</a> and Projectile contributors.</p>
+  <p>Copyright (C) 2011-2024 <a href="https://batsov.com">Bozhidar Batsov</a> and Projectile contributors.</p>
   <p>Except where otherwise noted, docs.projectile.mx is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0).</p>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>

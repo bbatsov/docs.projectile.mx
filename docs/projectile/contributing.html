@@ -195,8 +195,39 @@ isn&#8217;t already fixed or caused by interactions with other packages.</p>
 </div>
 <div class="paragraph">
 <p>Before submitting a patch or a pull request make sure all tests are
-passing and that your patch is in line with the <a href="https://github.com/bbatsov/projectile/blob/master/CONTRIBUTING.md">contribution
-guidelines</a>.</p>
+passing and that your patch is in line with the <a href="https://github.com/bbatsov/projectile/blob/master/CONTRIBUTING.md">contribution guidelines</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="running-the-tests-in-batch-mode"><a class="anchor" href="#running-the-tests-in-batch-mode"></a>Running the tests in batch mode</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ cd /path/to/projectile
+$ eldev test</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you need to make sure dependencies are at the latest version:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ eldev update</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Run all tests with Projectile installed as an Emacs package
+(i.e. byte-compiled and all that; this won&#8217;t affect your normal Emacs
+though):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ eldev -p test</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Tests should run fine in <code>shell-mode</code> or <code>term-mode</code>. It&#8217;s also possible to use <kbd>M-x</kbd> <code>compile</code> (or <code>helm-make</code>).</p>
 </div>
 </div>
 </div>
@@ -301,38 +332,6 @@ You&#8217;ll need commit access to the repository for this to work.
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="running-the-tests-in-batch-mode"><a class="anchor" href="#running-the-tests-in-batch-mode"></a>Running the tests in batch mode</h2>
-<div class="sectionbody">
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ cd /path/to/projectile
-$ eldev test</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>If you need to make sure dependencies are at the latest version:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ eldev update</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Run all tests with Projectile installed as an Emacs package
-(i.e. byte-compiled and all that; this won&#8217;t affect your normal Emacs
-though):</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ eldev -p test</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Tests should run fine in <code>shell-mode</code> or <code>term-mode</code>. It&#8217;s also possible to use <kbd>M-x</kbd> <code>compile</code> (or <code>helm-make</code>).</p>
-</div>
-</div>
-</div>
 <nav class="pagination">
   <span class="prev"><a href="troubleshooting.html">Troubleshooting</a></span>
   <span class="next"><a href="support.html">Support</a></span>
@@ -342,7 +341,7 @@ though):</p>
 </main>
 </div>
 <footer class="footer">
-  <p>Copyright (C) 2011-2022 <a href="https://batsov.com">Bozhidar Batsov</a> and Projectile contributors.</p>
+  <p>Copyright (C) 2011-2024 <a href="https://batsov.com">Bozhidar Batsov</a> and Projectile contributors.</p>
   <p>Except where otherwise noted, docs.projectile.mx is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0).</p>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>

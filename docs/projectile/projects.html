@@ -263,136 +263,144 @@ are the configuration files of various build tools. Out of the box the following
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">rebar.config</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Rebar project file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">project.clj</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Leiningen project file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">build.boot</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Boot-clj project file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">deps.edn</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Clojure CLI project file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SConstruct</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Scons project file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">default.nix</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Nix project file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">flake.nix</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Nix flake project file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">pom.xml</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Maven project file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">build.sbt</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SBT project file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">build.sc</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mill project file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">gradlew</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Gradle wrapper script</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">build.gradle</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Gradle project file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">.ensime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.ensime</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Ensime configuration file</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Gemfile</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Bundler file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">requirements.txt</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Pip file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">setup.py</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Setuptools file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">tox.ini</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Tox file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">composer.json</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Composer project file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cargo.toml</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cargo project file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">mix.exs</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Elixir mix project file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">stack.yaml</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Haskell&#8217;s stack tool based project</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">dune-project</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">OCaml Dune project file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">info.rkt</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Racket package description file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DESCRIPTION</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">R package description file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TAGS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">etags/ctags are usually in the root of project</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">GTAGS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">GNU Global tags</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">configure.in</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">autoconf old style</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">configure.ac</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">autoconf new style</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">cscope.out</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">cscope</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Makefile</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Make</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CMakeLists.txt</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CMakeLists.txt</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">CMake</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">WORKSPACE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Cargo.toml</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cargo project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DESCRIPTION</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R package description file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GTAGS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GNU Global tags</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Gemfile</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bundler file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Makefile</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Make</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SConstruct</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Scons project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TAGS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">etags/ctags are usually in the root of project</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WORKSPACE</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Bazel workspace file</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">debian/control</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>build.boot</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boot-clj project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>build.gradle</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gradle project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>build.sbt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SBT project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>build.sc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mill project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>composer.json</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Composer project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>configure.ac</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">autoconf new style</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>configure.in</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">autoconf old style</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cscope.out</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cscope</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>debian/control</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Debian package dpkg control file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>default.nix</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nix project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deps.edn</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Clojure CLI project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dune-project</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OCaml Dune project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>flake.nix</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nix flake project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>gradlew</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gradle wrapper script</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>info.rkt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Racket package description file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mix.exs</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Elixir mix project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pom.xml</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Maven project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>project.clj</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Leiningen project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rebar.config</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rebar project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>requirements.txt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Python Pip file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>setup.py</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Setuptools file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stack.yaml</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Haskell&#8217;s stack tool based project</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tox.ini</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tox file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>xmake.lua</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xmake project</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>build.zig.zon</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Zig project file</p></td>
 </tr>
 </tbody>
 </table>
@@ -1361,7 +1369,7 @@ the last duplicate is kept in the command history.</p>
 </main>
 </div>
 <footer class="footer">
-  <p>Copyright (C) 2011-2022 <a href="https://batsov.com">Bozhidar Batsov</a> and Projectile contributors.</p>
+  <p>Copyright (C) 2011-2024 <a href="https://batsov.com">Bozhidar Batsov</a> and Projectile contributors.</p>
   <p>Except where otherwise noted, docs.projectile.mx is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0).</p>
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>
