@@ -7,7 +7,7 @@
     <link rel="canonical" href="https://docs.projectile.mx/projectile/projects.html">
     <link rel="prev" href="usage.html">
     <link rel="next" href="configuration.html">
-    <meta name="generator" content="Antora 3.1.3">
+    <meta name="generator" content="Antora 3.1.10">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="../../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha">
@@ -1240,7 +1240,7 @@ you e.g. test a command-line program with <code>projectile-run-project</code>.</
 <p>Projectile offers a bunch of operations that are operating on the open buffers
 for some project (e.g. <code>projectile-kill-buffers</code>). One tricky part here are
 "special buffers" - basically buffers that are not backed by files
-(e.g. <code>*dired*</code>, <code>+<strong>scratch+</strong></code> and so on). Projectile determines whether a
+(e.g. <code>*dired*</code>, <code>*scratch*</code> and so on). Projectile determines whether a
 special buffer belongs to a project simply by checking the <code>default-directory</code>
 for the special buffer, which admittedly might result in some weird results
 (e.g. if you&#8217;ve created a special buffer that&#8217;s not related to a project, while

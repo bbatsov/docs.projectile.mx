@@ -7,7 +7,7 @@
     <link rel="canonical" href="https://docs.projectile.mx/projectile/projects.html">
     <link rel="prev" href="usage.html">
     <link rel="next" href="configuration.html">
-    <meta name="generator" content="Antora 3.1.3">
+    <meta name="generator" content="Antora 3.1.10">
     <link rel="stylesheet" href="../_/css/site.css">
 <link rel="stylesheet" href="../_/css/site-extra.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha">
@@ -92,9 +92,6 @@
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="contributing.html">Contributing</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="support.html">Support</a>
   </li>
 </ul>
   </li>
@@ -252,155 +249,307 @@ are the configuration files of various build tools. Out of the box the following
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
+<th class="tableblock halign-left valign-top">Language/Family</th>
 <th class="tableblock halign-left valign-top">File</th>
 <th class="tableblock halign-left valign-top">Project Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.ensime</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Ensime configuration file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CMakeLists.txt</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CMake</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Cargo.toml</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cargo project file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DESCRIPTION</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">R package description file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GTAGS</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">GNU Global tags</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Gemfile</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Bundler file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Makefile</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Make</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SConstruct</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Scons project file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TAGS</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">etags/ctags are usually in the root of project</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WORKSPACE</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Bazel workspace file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>build.boot</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Boot-clj project file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>build.gradle</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Gradle project file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>build.sbt</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SBT project file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>build.sc</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mill project file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>composer.json</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Composer project file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>configure.ac</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">autoconf new style</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>configure.in</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">autoconf old style</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cscope.out</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">cscope</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>debian/control</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Debian package dpkg control file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>default.nix</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Nix project file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deps.edn</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Clojure CLI project file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dune-project</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">OCaml Dune project file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>flake.nix</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Nix flake project file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>gradlew</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Gradle wrapper script</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>info.rkt</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Racket package description file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mix.exs</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Elixir mix project file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pom.xml</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Maven project file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>project.clj</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Leiningen project file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rebar.config</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Rebar project file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>requirements.txt</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Python Pip file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>setup.py</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Setuptools file</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stack.yaml</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Haskell&#8217;s stack tool based project</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tox.ini</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Tox file</p></td>
-</tr>
-<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Universal</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>xmake.lua</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">xmake project</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Universal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SConstruct</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Scons project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Universal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>meson.build</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Universal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>default.nix</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nix project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Universal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>flake.nix</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nix flake project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Universal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WORKSPACE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bazel workspace file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Universal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>debian/control</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Debian package dpkg control file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Make &amp; CMake</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Makefile</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Make</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Make &amp; CMake</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GNUMakefile</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GNU Make</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Make &amp; CMake</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CMakeLists.txt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CMake</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Go-task/Task</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Taskfile.yaml</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Go-task/Task project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PHP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>composer.json</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PHP project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Erlang &amp; Elixir</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rebar.config</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rebar project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Erlang &amp; Elixir</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mix.exs</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Elixir mix project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JavaScript</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Gruntfile.js</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Grunt project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Angular</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>angular.json</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Angular project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JavaScript</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>gulpfile.js</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Javascript Gulp file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JavaScript</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>package.json</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">npm, pnpm and yarn project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Python</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>manage.py</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Django project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Python</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>requirements.txt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Python requirements file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Python</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>setup.py</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Setuptools file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Python</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tox.ini</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Python Tox file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Python</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Pipfile</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Python Pip file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Python</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>poetry.lock</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Python Poetry project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Python</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pyproject.toml</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Python project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Java &amp; friends</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pom.xml</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Maven project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Java &amp; friends</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>application.yml</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gradle project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Java &amp; friends</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>build.gradle</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gradle project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Java &amp; friends</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>gradlew</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gradle wrapper script</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Java &amp; friends</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>application.yaml</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gradle wrapper script</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Scala</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>build.sbt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SBT project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Scala</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>build.sc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mill project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ensime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.ensime</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ensime configuration file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Clojure</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>project.clj</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Leiningen project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Clojure</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>build.boot</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boot-clj project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Clojure</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deps.edn</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Clojure CLI project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Clojure</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.bloop</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Clojure CLI project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ruby</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Gemfile</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bundler file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Crystal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>shard.yml</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Crystal project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Emacs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Cask</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Emacs cask file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Emacs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Eask</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Emacs cask file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Emacs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Eldev</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Emacs LISP project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DESCRIPTION</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R package description file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Haskell</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stack.yaml</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Haskell&#8217;s stack tool based project</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rust</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Cargo.toml</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cargo project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Racket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>info.rkt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Racket package description file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dart</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pubspec.yaml</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dart project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Elm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>elm.json</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Elm project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Julia</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Project.toml</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Julia project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OCaml</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dune-project</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OCaml Dune project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Universal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GTAGS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GNU Global tags</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Universal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TAGS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">etags/ctags are usually in the root of project</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Universal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>configure.ac</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">autoconf new style</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Universal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>configure.in</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">autoconf old style</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">C</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cscope.out</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cscope</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Composer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>composer.json</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Composer project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Zig</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>build.zig.zon</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Zig project file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Swift</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Package.swift</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Swift package file</p></td>
 </tr>
 </tbody>
 </table>
@@ -790,9 +939,9 @@ For example, "src/foo/abc.cpp" will match to "test/foo/abc.cpp" as test file and
 <pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(defun my/related-files(file)
   (let ((ext-to-test-prefix '(("cpp" . "Test")
                               ("py" . "test_"))))
-    (if-let ((ext (file-name-extension file))
-             (test-prefix (assoc-default ext ext-to-test-prefix))
-             (file-name (file-name-nondirectory file)))
+    (if-let* ((ext (file-name-extension file))
+              (test-prefix (assoc-default ext ext-to-test-prefix))
+              (file-name (file-name-nondirectory file)))
         (if (string-prefix-p test-prefix file-name)
             (let ((suffix (concat "/" (substring file-name (length test-prefix)))))
               (list :impl (lambda (other-file)
@@ -1257,7 +1406,7 @@ you e.g. test a command-line program with <code>projectile-run-project</code>.</
 <p>Projectile offers a bunch of operations that are operating on the open buffers
 for some project (e.g. <code>projectile-kill-buffers</code>). One tricky part here are
 "special buffers" - basically buffers that are not backed by files
-(e.g. <code>*dired*</code>, <code>+<strong>scratch+</strong></code> and so on). Projectile determines whether a
+(e.g. <code>*dired*</code>, <code>*scratch*</code> and so on). Projectile determines whether a
 special buffer belongs to a project simply by checking the <code>default-directory</code>
 for the special buffer, which admittedly might result in some weird results
 (e.g. if you&#8217;ve created a special buffer that&#8217;s not related to a project, while
