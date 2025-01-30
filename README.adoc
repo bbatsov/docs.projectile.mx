@@ -7,10 +7,9 @@ The filesystem layout is described at https://docs.antora.org/antora/2.0/compone
 To make changes to the manual you simply have to change the files under `doc`.
 The manual will be regenerated manually periodically.
 
-Check out https://docs.antora.org/antora/2.0/install/install-antora/[the detailed installation instructions]
-if you run into any problems.
-
 == Building the Site
+
+NOTE: You'll need to install `node.js` to build the site.
 
 You can build the documentation locally from this repo.
 
