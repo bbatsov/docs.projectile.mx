@@ -29,11 +29,11 @@ $ cd docs.projectile.mx
 $ antora --pull antora-playbook.yml
 ----
 
-After you're done with the initial setup you can use the `deploy` script to push changes to the site:
+After you're done with the initial setup you can use `make` to push changes to the site:
 
 [source]
 ----
-./deploy
+make deploy
 ----
 
 NOTE: You'll need commit access to the repository for this to work.
