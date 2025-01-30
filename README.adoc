@@ -7,15 +7,6 @@ The filesystem layout is described at https://docs.antora.org/antora/2.0/compone
 To make changes to the manual you simply have to change the files under `doc`.
 The manual will be regenerated manually periodically.
 
-== Installing Antora
-
-Installing the Antora is super simple:
-
-[source]
-----
-$ npm i -g @antora/cli@2.0 @antora/site-generator-default@2.0
-----
-
 Check out https://docs.antora.org/antora/2.0/install/install-antora/[the detailed installation instructions]
 if you run into any problems.
 
@@ -26,14 +17,14 @@ You can build the documentation locally from this repo.
 [source]
 ----
 $ cd docs.projectile.mx
-$ antora --pull antora-playbook.yml
+$ make build
 ----
 
 After you're done with the initial setup you can use `make` to push changes to the site:
 
 [source]
 ----
-make deploy
+$ make deploy
 ----
 
 NOTE: You'll need commit access to the repository for this to work.
