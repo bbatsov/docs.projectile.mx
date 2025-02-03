@@ -1190,6 +1190,8 @@ precedence with respect to project detection. Let&#8217;s examine the defaults:<
 <div class="sect1">
 <h2 id="ignoring-files"><a class="anchor" href="#ignoring-files"></a>Ignoring files</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="ignoring-files-using-projectile-a-k-a-dirconfig"><a class="anchor" href="#ignoring-files-using-projectile-a-k-a-dirconfig"></a>Ignoring files using <code>.projectile</code> (a.k.a. dirconfig)</h3>
 <div class="admonitionblock warning">
 <table>
 <tr>
@@ -1276,18 +1278,40 @@ with a bang prefix.</p>
 <p>If you would like to include comment lines in your .projectile file,
 you can customize the variable <code>projectile-dirconfig-comment-prefix</code>.
 Assigning it a non-nil character value, e.g. <code>#</code>, will cause lines in
-the .projectile file starting with that character to be treated as
+the <code>.projectile</code> file starting with that character to be treated as
 comments instead of patterns.</p>
 </div>
+</div>
 <div class="sect2">
-<h3 id="file-local-project-root-definitions"><a class="anchor" href="#file-local-project-root-definitions"></a>File-local project root definitions</h3>
+<h3 id="ignored-files-using-the-project-indexing-tools"><a class="anchor" href="#ignored-files-using-the-project-indexing-tools"></a>Ignored files using the project indexing tools</h3>
+<div class="paragraph">
+<p>If you&#8217;re using the <code>hybrid</code> or <code>alien</code> indexing strategies, the simplest
+way to ignore some files is just leverage the configuration of the
+tool you&#8217;re using to do the project indexing.</p>
+</div>
+<div class="paragraph">
+<p>E.g. in the case of <code>git</code> you can just tweak <code>.gitignore</code>.</p>
+</div>
+<div class="paragraph">
+<p>Sometimes, however, you&#8217;d like to have some files as part of your project,
+but you don&#8217;t want to see them in Projectile for whatever reasons.</p>
+</div>
+<div class="paragraph">
+<p>In those cases the project dirconfig file (<code>.projectile</code>) can be a handy
+way to further adjust what you want to see in Projectile.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="file-local-project-root-definitions"><a class="anchor" href="#file-local-project-root-definitions"></a>File-local project root definitions</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>If you want to override the projectile project root for a specific
 file, you can set the file-local variable <code>projectile-project-root</code>. This
 can be useful if you have files within one project that are related to
 a different project (for instance, Org files in one git repo that
 correspond to other projects).</p>
-</div>
 </div>
 </div>
 </div>

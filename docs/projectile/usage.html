@@ -190,6 +190,47 @@ bit you&#8217;ll get more out of it.</p>
 for a lot more information about configuring Projectile.</p>
 </div>
 <div class="sect2">
+<h3 id="basic-configuration"><a class="anchor" href="#basic-configuration"></a>Basic Configuration</h3>
+<div class="paragraph">
+<p>Here&#8217;s how a typical Projectile configuration would look:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">;; Optional: ag is nice alternative to using grep with Projectile
+(use-package ag
+  :ensure t)
+
+;; Optional: Enable vertico as the selection framework to use with Projectile
+(use-package vertico
+  :ensure t
+  :init
+  (vertico-mode +1))
+
+;; Optional: which-key will show you options for partially completed keybindings
+;; It's extremely useful for packages with many keybindings like Projectile.
+(use-package which-key
+  :ensure t
+  :config
+  (which-key-mode +1))
+
+(use-package projectile
+  :ensure t
+  :init
+  (setq projectile-project-search-path '("~/projects/" "~/work/" "~/playground"))
+  :config
+  ;; I typically use this keymap prefix on macOS
+  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+  ;; On Linux, however, I usually go with another one
+  (define-key projectile-mode-map (kbd "C-c C-p") 'projectile-command-map)
+  (global-set-key (kbd "C-c p") 'projectile-command-map)
+  (projectile-mode +1))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The example above builds upon the simpler setup demonstrated in the "Installation" section.</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="automated-project-discovery"><a class="anchor" href="#automated-project-discovery"></a>Automated Project Discovery</h3>
 <div class="paragraph">
 <p>To add a project to Projectile&#8217;s list of known projects, open a file
@@ -213,6 +254,33 @@ is automatically going to check for projects on startup.</p>
 <p>You can suppress the auto-discovery of projects on startup by setting
 <code>projectile-auto-discover</code> to <code>nil</code>. You can manually trigger the project
 discovery using <code>M-x projectile-discover-projects-in-search-path</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="removal-of-missing-projects"><a class="anchor" href="#removal-of-missing-projects"></a>Removal of missing projects</h3>
+<div class="paragraph">
+<p>From time to time you&#8217;ll have projects in your list of known projects that are no longer
+around. (e.g. they were removed or renamed) You can either trigger the command
+<code>projectile-cleanup-known-projects</code> manually or set the variable
+<code>projectile-auto-cleanup-known-projects</code> to <code>t</code> to remove such projects automatically.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(setq projectile-cleanup-known-projects nil)</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you&#8217;re a heavy TRAMP user it&#8217;s probably not a good idea to auto-discover
+and cleanup projects, as the file operations are slower there.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -356,10 +424,16 @@ The extent of the support for every VCS differs and Git is the best supported
 <div class="ulist">
 <ul>
 <li>
-<p>build/compile project (<kbd>s-p c</kbd>)</p>
+<p>build/compile project (<kbd>s-p c c</kbd>)</p>
 </li>
 <li>
-<p>test project (<kbd>s-p T</kbd>)</p>
+<p>test project (<kbd>s-p c t</kbd>)</p>
+</li>
+<li>
+<p>install project (<kbd>s-p c i</kbd>)</p>
+</li>
+<li>
+<p>run project (<kbd>s-p c r</kbd>)</p>
 </li>
 </ul>
 </div>
@@ -567,16 +641,24 @@ Projectile doesn&#8217;t have a default key prefix for its commands, but all the
 <td class="tableblock halign-left valign-top"><p class="tableblock">Runs <code>async-shell-command</code> in the root directory of the project.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p C</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p c o</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Runs a standard configure command for your type of project.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p c</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p c c</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Runs a standard compilation command for your type of project.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p P</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p c t</kbd></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Runs a standard test command for your type of project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p c i</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Runs a standard install command for your type of project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p c r</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Runs a standard run command for your type of project.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>s-p t</kbd></p></td>

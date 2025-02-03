@@ -184,12 +184,13 @@ known as the <code>native indexing method</code>) and the other two (<code>hybri
 obtain the list of files in a project.</p>
 </div>
 <div class="paragraph">
-<p>The <code>alien</code> indexing method maximizes the speed of the <code>hybrid</code> indexing
-method.  This means that Projectile will not do any processing or sorting
-of the files returned by the external commands and you&#8217;re going to get
-the maximum performance possible.  This behaviour makes a lot of sense for
-most people, as they&#8217;d typically be putting ignores in their VCS config (e.g. <code>.gitignore</code>) and won&#8217;t care about any additional ignores/unignores/sorting
-that Projectile might also provide.</p>
+<p>The <code>alien</code> indexing method maximizes the speed of the <code>hybrid</code> indexing method.
+This means that Projectile will not do any processing or sorting of the files
+returned by the external commands and you&#8217;re going to get the maximum
+performance possible.  This behaviour makes a lot of sense for most people, as
+they&#8217;d typically be putting ignores in their VCS config (e.g. <code>.gitignore</code>) and
+won&#8217;t care about any additional ignores/unignores/sorting that Projectile might
+also provide.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -384,7 +385,29 @@ cache for current project. Generally files created outside Emacs will
 be added to the cache automatically the first time you open them.</p>
 </div>
 <div class="paragraph">
-<p>The project cache is persistent and will be preserved during Emacs restarts.</p>
+<p>Normally the cache lasts for the duration of your Emacs session.
+If you want to cache to persist between Emacs sessions you
+should set this option to <code>'persistent</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(setq projectile-enable-caching 'persistent)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now the project cache is persistent and will be preserved during Emacs restarts.
+Each project gets its own cache file, that will be placed in the root folder of the
+project. The name of the cache file is <code>.projectile-cache.eld</code> by default, but you can tweak it
+if you want to:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(setq projectile-cache-file "foo.eld")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The cache file will be loaded automatically in memory the first time you trigger
+a "find file" operation for the project it belongs to.</p>
 </div>
 <div class="paragraph">
 <p>You can purge an individual file from the cache with <code>M-x projectile-purge-file-from-cache</code> or an
@@ -403,6 +426,21 @@ the project&#8217;s root directory.
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>When <code>projectile-mode</code> is enabled Projectile will auto-update the project cache when files
+within are added or deleted from within Emacs. (this is achieved by file hooks) This behavior
+can be disabled like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-elisp hljs" data-lang="elisp">(setq projectile-auto-update-cache nil)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>One last thing - the project cache will be auto-invalidated if you&#8217;re using
+<code>.projectile</code> and it&#8217;s last modification time is more recent than the time at
+which the cache file was last updated.</p>
 </div>
 </div>
 <div class="sect2">
