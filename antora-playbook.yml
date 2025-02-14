@@ -8,7 +8,7 @@ content:
   sources:
   - url: https://github.com/bbatsov/projectile.git
     branches: ['master']
-    tags: ['v2.2.0', 'v2.3.0-antora', 'v2.4.0', 'v2.6.0-antora', 'v2.7.0']
+    tags: ['v2.2.0', 'v2.3.0-antora', 'v2.4.0', 'v2.6.0-antora', 'v2.7.0', 'v2.9.1-antora']
     start_path: doc
 asciidoc:
   attributes:
