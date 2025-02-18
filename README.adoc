@@ -1,8 +1,10 @@
 = docs.projectile.mx
 
-The site is generated from the AsciiDoc files in the link:https://github.com/bbatsov/projectile/tree/master/doc[doc] folder of Projectile's GitHub repo and is published to https://docs.projectile.mx.
-link:https://antora.org[Antora] is used to convert the manual into HTML.
-The filesystem layout is described at https://docs.antora.org/antora/3.1/component-structure/
+The site is generated from the AsciiDoc files in the
+link:https://github.com/bbatsov/projectile/tree/master/doc[doc] folder of
+Projectile's GitHub repo and is published to https://docs.projectile.mx.
+link:https://antora.org[Antora] is used to convert the manual into HTML.  The
+filesystem layout is described https://docs.antora.org/antora/3.1/component-structure/[here].
 
 To make changes to the manual you simply have to change the files under `doc`.
 The manual will be regenerated manually periodically.
@@ -11,7 +13,7 @@ The manual will be regenerated manually periodically.
 
 NOTE: You'll need to install `node.js` to build the site.
 
-You can build the documentation locally from this repo.
+You can build the documentation locally from this repository:
 
 [source]
 ----
