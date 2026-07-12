@@ -18,6 +18,7 @@ content:
           "v2.9.1-antora",
           "v3.0.0",
           "v3.1.0",
+          "v3.2.0",
         ]
       start_path: doc
 asciidoc:
