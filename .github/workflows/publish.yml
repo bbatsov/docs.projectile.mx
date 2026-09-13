@@ -2,6 +2,13 @@ name: Publish to GitHub Pages
 on:
   push:
     branches: [master]
+  # The content lives in the projectile repo, so rebuild daily to pick up its
+  # changes without anyone having to remember to trigger it.
+  schedule:
+    - cron: "0 5 * * *"
+  # Lets the projectile repo ask for a rebuild as soon as a doc change lands.
+  repository_dispatch:
+    types: [docs-updated]
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 concurrency:
@@ -27,8 +34,9 @@ jobs:
         uses: actions/setup-node@v7
         with:
           node-version: "22"
+          cache: npm
       - name: Install Antora
-        run: npm i antora
+        run: npm ci
       - name: Generate Site
         run: npx antora antora-playbook.yml
       - name: Upload Artifacts
